@@ -31,7 +31,8 @@ b) normal atack (No fake dns) <br />
 
 
  To find the victim's data go to /export/data.txt <br />
- 
+ To find the batch file go to /export/l_win.bat  <br />
+  
 
 How it works
 
