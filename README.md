@@ -30,6 +30,9 @@ a) Fake dns generator for create batch file for computer of victim <br />
 b) normal atack (No fake dns) <br />
 
 
+ To find the victim's data go to /export/data.txt <br />
+ 
+
 How it works
 
 ![alt tag](http://www.cert.gov.om/images/news/dns_english.jpg "Dns reirect") 
