@@ -1,5 +1,5 @@
 # clonenew
-This is programm for clone websites <br />
+This is program for clone websites <br />
 
 Download the programm and paste folder clonenew in to /var/www/ <br />
  Run th script and clone any website <br />
