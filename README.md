@@ -4,9 +4,9 @@ This is program for clone websites <br />
 Download the programm and paste folder clonenew in to /var/www/ <br />
  Run th script and clone any website <br />
 
-This oprogram have  <br />
+This program have  <br />
 
-Any website <br />
+Any website clone for manual method <br />
 
   a) insert a name of a web site and press enter <br />
   b) The web site it must have http or https protocol <br />
