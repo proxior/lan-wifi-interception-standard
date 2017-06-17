@@ -8,8 +8,9 @@ This program have  <br />
 
 Any website clone for manual method <br />
 
-  a) insert a name of a web site and press enter <br />
-  b) The web site it must have http or https protocol <br />
+  a) insert a ip of attacker
+  b) insert a name of a web site and press enter <br />
+  c) The web site it must have http or https protocol <br />
      Right: http://www.example.com or http://example.com <br />
      Wrong: www.example.com or example.com <br />
      
