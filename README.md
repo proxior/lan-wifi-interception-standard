@@ -1,22 +1,30 @@
 # clonenew
 This is programm for clone websites
 
-1) Download the programm and paste folder clonenew in to /var/www/
-2) Run th script and clone any website
+Download the programm and paste folder clonenew in to /var/www/
+ Run th script and clone any website
 
 This oprogram have 
 
 Any website
-  1) insert a name of a web site and press enter 
-  2) The web site it must have http or https protocol 
+  a) insert a name of a web site and press enter 
+  b) The web site it must have http or https protocol 
      Right: http://www.example.com or http://example.com
      Wrong: www.example.com or example.com 
      
      
  Ready web sites (socail media and email)
  
- socail media (facebook,twitter)
- email (gmail,yahoo)
+ a) socail media (facebook,twitter)
+ b) email (gmail,yahoo)
+
+
+
+
+Two attack methods 
+
+a) Fake dns generator for create batch file for computer of victim
+b) normal atack (No fake dns)
 
 
 How it works
