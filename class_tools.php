@@ -18,7 +18,7 @@
 *  You should have received a copy of the GNU Affero General Public License
 *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
-
+*/
 
 
     class INPUT_DATA
@@ -240,14 +240,6 @@
 
 
     $obj_data_t2 = clone $obj_data_t;
-
-
-
-
-
-
-
-
 
 
 ?>
