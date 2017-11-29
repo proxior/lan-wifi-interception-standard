@@ -1,25 +1,6 @@
 <?php
 
 
-/*
-*  Clonenew is a programm for clone websites.
-*  Copyright (c) 2017 Barchampas Gerasimos.
-*
-*  Clonenew is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU Affero General Public License as published by
-*  the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  Clonenew is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU Affero General Public License for more details.
-*
-*  You should have received a copy of the GNU Affero General Public License
-*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
-
 
     class INPUT_DATA
     { 
@@ -140,6 +121,121 @@
 
 
 
+
+// clone class pc file for delete
+
+  class CLEAR_DATA_PC
+     {
+ 
+    static $data_pcs = "/var/www/clonenew/pc.htmh";
+    public $data_pc;
+
+    public function __construct() 
+     {
+        $this->data_pc = ++self::$data_pcs;
+      }
+
+     public function __clone() 
+       {
+        $this->data_pc = ++self::$data_pcs;
+        }
+
+
+    }
+
+
+
+  class CLEAR_DATA_PC_C
+     {
+
+     public $data_pc_c;
+     public $data_pc_c2;
+
+     public function __clone()
+          {
+     
+          $this->data_pc_c = clone $this->data_pc_c;
+          }
+ 
+       }
+ 
+  
+
+  $obj_data_pc = new  CLEAR_DATA_PC_C();
+
+  $obj_data_pc -> data_pc_c = new CLEAR_DATA_PC();
+  $obj_data_pc -> data_pc_c2 = new CLEAR_DATA_PC();
+
+
+    $obj_data_pc2 = clone $obj_data_pc;
+
+
+
+
+
+
+
+
+
+
+
+// clone class mobile file for delete
+
+  class CLEAR_DATA_MOBILE
+     {
+ 
+    static $data_mobiles = "/var/www/clonenew/mobile.htmh";
+    public $data_mobile;
+
+    public function __construct() 
+     {
+        $this->data_mobile = ++self::$data_mobiles;
+      }
+
+     public function __clone() 
+       {
+        $this->data_mobile = ++self::$data_mobiles;
+        }
+
+
+    }
+
+
+
+  class CLEAR_DATA_MOBILE_C
+     {
+
+     public $data_mobile_c;
+     public $data_mobile_c2;
+
+     public function __clone()
+          {
+     
+          $this->data_mobile_c = clone $this->data_mobile_c;
+          }
+ 
+       }
+ 
+  
+
+  $obj_data_mobile = new  CLEAR_DATA_MOBILE_C();
+
+  $obj_data_mobile -> data_mobile_c = new CLEAR_DATA_MOBILE();
+  $obj_data_mobile -> data_mobile_c2 = new CLEAR_DATA_MOBILE();
+
+
+    $obj_data_mobile2 = clone $obj_data_mobile;
+
+
+
+
+
+
+
+
+
+
+
     
    // clone class post file fore delete
 
@@ -199,7 +295,7 @@
    class CLEAR_DATA_TXT
      {
  
-    static $data_txts = "/var/www/clonenew/data.txp";
+    static $data_txts = "/var/www/clonenew/export/data.txp";
     public $data_txt;
 
     public function __construct() 
@@ -240,6 +336,69 @@
 
 
     $obj_data_t2 = clone $obj_data_t;
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+ // clone class win.bat file for delete
+
+   class CLEAR_DATA_BAT
+     {
+ 
+    static $data_bats = "/var/www/clonenew/export/l_win.bap";
+    public $data_bat;
+
+    public function __construct() 
+     {
+        $this->data_bat = ++self::$data_bats;
+      }
+
+     public function __clone() 
+       {
+        $this->data_bat = ++self::$data_bats;
+        }
+
+
+    }
+
+
+
+  class CLEAR_DATA_BAT_C
+     {
+
+     public $data_bat_c;
+     public $data_bat_c2;
+
+     public function __clone()
+          {
+     
+          $this->data_bat_c = clone $this->data_bat_c;
+          }
+ 
+       }
+ 
+  
+
+  $obj_data_b = new  CLEAR_DATA_BAT_C();
+
+  $obj_data_b -> data_bat_c = new CLEAR_DATA_BAT();
+  $obj_data_b -> data_bat_c2 = new CLEAR_DATA_BAT();
+
+
+    $obj_data_b2 = clone $obj_data_b;
+
+
+
+
 
 
 ?>
