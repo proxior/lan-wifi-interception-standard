@@ -19,7 +19,7 @@ Any website clone for manual method <br />
  Ready web sites (socail media and email) <br />
  
  a) socail media (facebook,twitter) <br />
- b) email (gmail,yahoo) <br />
+ b) email (gmail,hotmail,yahoo) <br />
 
 
 
