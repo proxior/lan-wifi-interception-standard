@@ -36,4 +36,4 @@ b) normal atack (No fake dns) <br />
 
 How it works
 
-![alt tag](http://www.cert.gov.om/images/news/dns_english.jpg "Dns reirect") 
+![clonenew1](clonenew1.jpg) 
