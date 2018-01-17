@@ -1,32 +1,12 @@
 <?php
 
-/*
-*  Clonenew is a programm for clone websites.
-*  Copyright (c) 2017 Barchampas Gerasimos.
-*
-*  Clonenew is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU Affero General Public License as published by
-*  the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  Clonenew is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU Affero General Public License for more details.
-*
-*  You should have received a copy of the GNU Affero General Public License
-*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
-
-
  session_start();
  session_unset();
  session_destroy();
    
 
 
-  require_once('class_tools.php');
+  require_once('__SRC__/class_tools.php');
 
 
   if (class_exists('CLEAR_DATA_INDEX')) 
@@ -103,7 +83,8 @@
 
   $url_redirection = shell_exec('shell/./my_ipv4.sh');
 
-  echo "<meta http-equiv='refresh' content= '5;URL=http://$url_redirection'/>";
+  echo "<meta http-equiv='refresh' content= '2;URL=http://$url_redirection?=clear'/>";
+
 
 
 ?>

