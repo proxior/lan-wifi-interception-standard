@@ -28,6 +28,7 @@ Two attack methods
 
 a) Fake dns generator for create batch file for computer of victim <br />
 b) normal atack (No fake dns) <br />
+c) Email phishing <br />
 
 
  To find the victim's data go to /export/data.txt <br />
