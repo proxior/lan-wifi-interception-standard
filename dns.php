@@ -435,9 +435,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "YOUR_USERNAME";
+$mail->Username = "makindosxx@gmail.com";
 
-$mail->Password = "YOUR_PASSWORD";
+$mail->Password = "mak*.m02m";
 
   $mail->SetFrom($link, $str_link4);
 

