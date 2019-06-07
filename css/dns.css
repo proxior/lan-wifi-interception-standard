@@ -24,7 +24,7 @@
 background-image:url('');
 background-repeat:no-repeat;
 background-size:100%;
-background-color:;
+background-color: #F6F6F6;
 }
 
 
@@ -59,11 +59,18 @@ font-size:18px;
 
 #email
 {
-height:3.5em;
-width:27em;
+height:3em;
+width:20em;
 text-align:center;
 }
 
+
+#ngrok
+{
+height:3em;
+width:20em;
+text-align:center;
+}
 
 
 #submit
@@ -134,3 +141,4 @@ height: 98%;
   background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8',GradientType=0 ); /* IE6-9 */
 }
+

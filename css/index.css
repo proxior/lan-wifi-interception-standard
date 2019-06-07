@@ -24,7 +24,7 @@
 background-image:url('');
 background-repeat:no-repeat;
 background-size:100%;
-background-color:;
+background-color: #F6F6F6;
 }
 
 
@@ -100,22 +100,6 @@ position: absolute; left: -9999px;
 
 
 
-
-
-
-#footer
-{
-position:fixed;
-bottom:10%;
-left:50%;
-margin-left:-300px; /*negative half the width */
-background:;
-}
-
-
-
-
-
 input[placeholder], [placeholder], *[placeholder] {
     color: black !important;
 font-weight:bold;
@@ -123,6 +107,21 @@ font-weight:bold;
 
 
 
+#footer
+{
+position:;
+bottom:2%;
+left:50%;
+margin-left:-100px; /*negative half the width */
+}
+
+
+#hr
+{
+position:fixed;
+bottom:2%;
+border: 10px solid #39152E;
+}
 
 
 
