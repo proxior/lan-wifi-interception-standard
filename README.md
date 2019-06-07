@@ -1,7 +1,9 @@
 # clonenew
 This is program for clone websites <br />
 
-Download the programm and paste folder clonenew in to /var/www/ <br />
+ Download the programm and paste folder clonenew in to /var/www/ <br />
+ After install the ngrok in same folder <br>
+ Install ngrok from here https://ngrok.com/ <br>
  Run th script and clone any website <br />
 
 This program have  <br />
@@ -24,11 +26,11 @@ Any website clone for manual method <br />
 
 
 <br />
-Two attack methods 
+Three attack methods 
 
 a) Fake dns generator for create batch file for computer of victim <br />
 b) normal atack (No fake dns) <br />
-c) Email phishing <br />
+c) Email phishing with ngrok link <br />
 
 
  To find the victim's data go to /export/data.txt <br />
