@@ -456,9 +456,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -539,9 +539,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -619,9 +619,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -698,9 +698,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -777,9 +777,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -864,9 +864,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -943,9 +943,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "m";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
@@ -1021,9 +1021,9 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "makindosxx@gmail.com";
+$mail->Username = "";
 
-$mail->Password = "mak*.m02m";
+$mail->Password = "";
 
 $mail->SetFrom($link, $link);
 
