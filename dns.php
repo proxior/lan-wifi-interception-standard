@@ -943,7 +943,7 @@ $mail->Port = 465; // or 587
 
 $mail->IsHTML(true);
 
-$mail->Username = "m";
+$mail->Username = "";
 
 $mail->Password = "";
 
