@@ -1,7 +1,7 @@
-# clonenew
-This is program for clone websites <br />
+# proxior
+program for poisoning and spoofing dns. <br />
 
- Download the programm and paste folder clonenew in to /var/www/ <br />
+ Download the programm and paste folder proxior in to /var/www/ <br />
  After install the ngrok in same folder <br>
  Install ngrok from here https://ngrok.com/ <br>
  Run th script and clone any website <br />
@@ -29,8 +29,8 @@ Any website clone for manual method <br />
 Three attack methods 
 
 a) Fake dns generator for create batch file for computer of victim <br />
-b) normal atack (No fake dns) <br />
-c) Email phishing with ngrok link <br />
+b) Email phishing with ngrok link <br />
+c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br />
 
 
  To find the victim's data go to /export/data.txt <br />
