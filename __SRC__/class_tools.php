@@ -1,6 +1,23 @@
 <?php
 
-
+/*
+*  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
+*  proxior is a program for poisoning and spoofing dns.
+*
+*  proxior is free software: you can redistribute it and/or modify
+*  it under the terms of the GNU Affero General Public License as published by
+*  the Free Software Foundation, either version 3 of the License, or
+*  (at your option) any later version.
+*
+*  proxior is distributed in the hope that it will be useful,
+*  but WITHOUT ANY WARRANTY; without even the implied warranty of
+*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*  GNU Affero General Public License for more details.
+*
+*  You should have received a copy of the GNU Affero General Public License
+*  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+*/
 
     class INPUT_DATA
     { 
@@ -71,7 +88,7 @@
   class CLEAR_DATA_INDEX
      {
  
-    static $data_indexes = "/var/www/clonenew/index.htmh";
+    static $data_indexes = "/var/www/proxior/index.htmh";
     public $data_index;
 
     public function __construct() 
@@ -127,7 +144,7 @@
   class CLEAR_DATA_PC
      {
  
-    static $data_pcs = "/var/www/clonenew/pc.htmh";
+    static $data_pcs = "/var/www/proxior/pc.htmh";
     public $data_pc;
 
     public function __construct() 
@@ -184,7 +201,7 @@
   class CLEAR_DATA_MOBILE
      {
  
-    static $data_mobiles = "/var/www/clonenew/mobile.htmh";
+    static $data_mobiles = "/var/www/proxior/mobile.htmh";
     public $data_mobile;
 
     public function __construct() 
@@ -243,7 +260,7 @@
    class CLEAR_DATA_POST
      {
  
-    static $data_posts = "/var/www/clonenew/post.phl";
+    static $data_posts = "/var/www/proxior/post.phl";
     public $data_post;
 
     public function __construct() 
@@ -295,7 +312,7 @@
    class CLEAR_DATA_TXT
      {
  
-    static $data_txts = "/var/www/clonenew/export/data.txp";
+    static $data_txts = "/var/www/proxior/export/data.txp";
     public $data_txt;
 
     public function __construct() 
@@ -354,7 +371,7 @@
    class CLEAR_DATA_BAT
      {
  
-    static $data_bats = "/var/www/clonenew/export/l_win.bap";
+    static $data_bats = "/var/www/proxior/export/l_win.bap";
     public $data_bat;
 
     public function __construct() 

@@ -20,27 +20,51 @@
 */
 
 
-   class ERRNO_EXCEPTIONS
-    {  
-
-  public $ERROR_REPORTING_0 = error_reporting(0);
-
-  public $ERROR_REPORTING_E_ERROR_E_WARNING_E_PARSE = error_reporting(E_ERROR | E_WARNING | E_PARSE);
-
-  public $ERROR_REPORTING_E_ERROR_E_WARNING_E_PARSE_E_NOTICE = error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-
-  public $ERROR_REPORTING_E_ALL_E_NOTICE = error_reporting(E_ALL & ~E_NOTICE);
-
-  public $ERROR_REPORTING_E_ALL = error_reporting(E_ALL);
-
-  public $ERROR_REPORTING_1 =  error_reporting(-1);
-
-  public $ERROR_REPORTING_E_ALL_INI_SET = ini_set('error_reporting', E_ALL);
-
-  public $ERROR_REPORTING_DISPLAY_ERRORS = ini_set("display_errors", 1);
+class ATTACK_DETAILS
+  {
  
 
-    } // end of class errors
+    public $DETAILS = array();
+    
+    public $CONNECTED = "successful"; 
+    public $PROTOCOL_PORT = "http | 80";
+    public $DNS_CONDITION = "spoofing";
+
+
+    const CONSTANT = "h:i:s"; // for time to attack
+
+    function showConstant() 
+      {
+        echo  self::CONSTANT;
+        }
+  
+
+ 
+
+      public function __construct()
+	 {
+ 	  $this->DETAILS[0] = $this->CONNECTED; // for connect condition
+	  $this->DETAILS[1] = $this->PROTOCOL_PORT;  // for protocol and port to clone
+          $this->DETAILS[2] = $this->DNS_CONDITION; // for dns spoofing
+           }
+
+
+
+ 
+        public function __destruct()
+	 {
+ 	  $this->DETAILS[0] = null;
+	  $this->DETAILS[1] = null;  
+          $this->DETAILS[2] = null; 
+          $this->DETAILS[3] = null;	  
+           }
+
+
+
+
+
+   } // end of class
+
 
 
 ?>
