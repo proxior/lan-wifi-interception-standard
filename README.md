@@ -5,7 +5,7 @@ program for poisoning and spoofing dns. <br />
 
 This program have  <br />
 
-Any website clone for manual method <br />
+i) Any website clone for manual method <br />
 
   a) insert the ip of attacker <br />
   b) insert a name of a web site and press enter <br />
@@ -15,7 +15,7 @@ Any website clone for manual method <br />
      
 
 
- Ready web sites (socail media and email) <br />
+ ii) Ready web sites (socail media and email) <br />
  
  a) socail media (facebook,instagram,twitter) <br />
  b) email (gmail,hotmail,yahoo) <br />
@@ -25,7 +25,8 @@ Any website clone for manual method <br />
 
 Three attack methods 
 
-a) Fake dns generator for create batch file for computer of victim <br />
+a) Fake dns generator for create batch file for computer of victim <br /> <br />
+
 b) Email phishing with ngrok link <br />
  After install the ngrok in same folder <br>
  Install ngrok from here https://ngrok.com/ <br>
