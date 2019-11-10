@@ -2,9 +2,6 @@
 program for poisoning and spoofing dns. <br />
 
  Download the programm and paste folder proxior in to /var/www/ <br />
- After install the ngrok in same folder <br>
- Install ngrok from here https://ngrok.com/ <br>
- Run th script and clone any website <br />
 
 This program have  <br />
 
@@ -24,12 +21,15 @@ Any website clone for manual method <br />
  b) email (gmail,hotmail,yahoo) <br />
 
 
-
 <br />
+
 Three attack methods 
 
 a) Fake dns generator for create batch file for computer of victim <br />
 b) Email phishing with ngrok link <br />
+ After install the ngrok in same folder <br>
+ Install ngrok from here https://ngrok.com/ <br>
+ Run th script and clone any website <br /> <br />
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br />
 
 
