@@ -75,8 +75,8 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    Insert into IP Address field the ip from your server e.x 192.168.2.2 <br>
    Press add. Dns spoof registered <br/> <br/>
    
-   ![9](css/screenshots/9.png) <br/>
-   ![8](css/screenshots/8.png) <br/> 
+   ![9](css/screenshots/9.jpg) <br/>
+   ![8](css/screenshots/8.jpg) <br/> 
    ![7](css/screenshots/7.png) <br/> 
    ![4](css/screenshots/4.png) <br/><br/> 
 
