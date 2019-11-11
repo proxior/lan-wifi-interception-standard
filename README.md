@@ -65,7 +65,8 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    Third operation is created a roque wifi with no internet connection <br/>
    !Attention! The wifi must be open... NO KEYS NO ENCRYPTION..... FREE WIFI <br/> <br/>
    
-        
+   For create new attack method or create newa atack for beginw with diferent site <br/> 
+   Enter clear.php after url e.x 192.168.2.2/clear.php or www.facebook.gr/clear.php
    
   
 
