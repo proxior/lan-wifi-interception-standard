@@ -17,7 +17,7 @@ i) Any website clone for manual method <br/>
 
  ii) Ready web sites (social media and email) <br/>
  
- a) socail media (facebook,instagram,twitter) <br/>
+ a) social media (facebook,instagram,twitter) <br/>
  b) email (gmail,hotmail,yahoo) <br/>
 
 ![2](css/screenshots/2.png) <br/><br/> 
