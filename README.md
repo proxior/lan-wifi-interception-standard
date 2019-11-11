@@ -52,7 +52,7 @@ b) Email phishing with ngrok link <br/>
  host: smtp.gmail.com </br>
  port: 465 or 587 </br> 
  
-![6](css/screenshots/6.png) <br/><br/> 
+![6.1](css/screenshots/6.1.png) <br/><br/> 
 
  
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
