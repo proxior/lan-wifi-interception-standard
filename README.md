@@ -44,18 +44,25 @@ b) Email phishing with ngrok link <br />
  
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For this method insert in to device the the dns for spoof <br/>
+   For your ip view in to the connection informations or enter ifconfig on terminal
+   For first operation and second operation your use the ip from eth0 
+   For third operation roque wifi use the ip from wlan0 
    e.x <br/>
    dns: www.gmail.com <br/>
    ip: 192.168.2.2 <br/>
-   The devive connect with server(laptop or pc) with specific ip address.. This ip is 192.168.2.2 <br/>   
+   
    This device username and password details. <br/>
    username: admin <br/>
    password: admin <br/>
+   
    You can use this device for three operations <br/>
+   
    First operation is router. Connect to dsl cable in to dsl port in device <br/>
+   
    Second operqtion is acces point with cable. Connect lan port from device with lan port yo router <br/>
    After disable dchp server form device and give ip = 192.168.2.253 and subnet mask = 255.255.255.0 <br/>
-   Thirf operation is created a roque wifi with no internet connection <br/>
+   
+   Third operation is created a roque wifi with no internet connection <br/>
    !Attention! The wifi must be open... NO KEYS NO ENCRYPTION..... FREE WIFI <br/> <br/>
    
         
