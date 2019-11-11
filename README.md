@@ -33,6 +33,15 @@ b) Email phishing with ngrok link <br />
  After install the ngrok in same folder <br>
  Install ngrok from here https://ngrok.com/ <br>
  Run th script and clone any website <br /> <br />
+ 
+ !Notice.. For using email phishing method open the file settings.txt <br/>
+ Default seetings working for gmail accounts. If you want using another mail change the mail settings <br />
+ Insert the details your account email (need a email account for send fake emails) <br/>
+ Fisrt line insert email and second line insert password <br/>
+ e.x <br/>
+ email@gmail.com <br/>
+ password123456 <br/> <br/>
+ 
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br />
 
   
