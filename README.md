@@ -66,7 +66,14 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    !Attention! The wifi must be open... NO KEYS NO ENCRYPTION..... FREE WIFI <br/> <br/>
    
    For create new attack method or create new atack for begin with different site <br/> 
-   Enter clear.php after url e.x 192.168.2.2/clear.php or www.facebook.gr/clear.php
+   Enter clear.php in browser address bar after ip or url. your_ip/clear.php or fake_url/clear.php <br/>
+   e.x 192.168.2.2/clear.php or www.facebook.gr/clear.php <br/> <br/>
+   
+   For view steal accounts there are two methods </br>
+   First method open the file data.txt where is it in export folder (export/data.txt) <br/>
+   Second method enter the browser address bar your_ip/export/data.txt or fake_url/export/data.txt <br/>
+   e.x 192.168.2.2/export/data.txt or www.facebook.gr/export/data.txt <br/> <br/>
+   
    
   
 
