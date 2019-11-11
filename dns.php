@@ -65,7 +65,7 @@ transform: scale(2);
     <form action="" method="post">
 
    <select name="fake_dns" id="select_dns" required>
-     <option selected disabled > Operating System of victim </option>
+     <option selected disabled > &#10684; &#9416; &nbsp; Operating System of victim </option>
       <optgroup label="Microsoft windows">
     <option value ="windows xp"> &#9705; &#120143; &#8473; &nbsp;  Windows XP  </option>
     <option value ="windows 7"> &#9705; &#55; &nbsp;   Windows 7  </option>
