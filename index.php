@@ -129,15 +129,16 @@ $(document).ready(function(){
 
 
 
-     <div class="shell-wrap">
-     <p class="shell-top-bar"> 
-      <?php
-         $output = shell_exec('shell/getaway_ip.sh');
-         echo "<a class='a' href='//$output' target='_blank'> Create Fake Dns </a>";
-        ?>       
-      </p>
+<div class="shell-wrap">
+
+ <p class="shell-top-bar"> 
+ <?php
+  $output = shell_exec('shell/getaway_ip.sh');
+    echo "<a class='a' href='//$output' target='_blank'> Create Fake Dns </a>";      
+  ?>       
+  </p>
   
-     <br>
+ <br>
 
 
   <div align="center">
@@ -389,7 +390,7 @@ echo '<script type="text/javascript">alert("The website hack fail: Try again");
 
 
 
- } // kleisimo ths isset
+ } // end of isset
 
 
 
