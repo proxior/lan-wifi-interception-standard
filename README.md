@@ -85,4 +85,4 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
 
 How it works
 
-![clonenew1](clonenew1.jpg) 
+![clonene_diagram](css/clone_diagram.jpg) 
