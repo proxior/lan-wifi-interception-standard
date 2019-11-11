@@ -52,8 +52,8 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    ip: 192.168.2.2 <br/>
    
    This device username and password details. <br/>
-   username: admin <br/>
-   password: admin <br/>
+   username: proxior <br/>
+   password: proxior <br/>
    
    You can use this device for three operations <br/>
    
