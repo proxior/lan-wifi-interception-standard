@@ -44,9 +44,18 @@ b) Email phishing with ngrok link <br />
  
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For this method insert in to device the the dns for spoof <br/>
-   e.x dns: www.gmail.com <br/>
-        ip: 192.168.2.2 <br/>
-   The devive connect with server(laptop or pc) with specific ip address.. This ip is 192.168.2.2 <br/>     
+   e.x <br/>
+   dns: www.gmail.com <br/>
+   ip: 192.168.2.2 <br/>
+   The devive connect with server(laptop or pc) with specific ip address.. This ip is 192.168.2.2 <br/>   
+   This device username and password details. <br/>
+   username: admin <br/>
+   password: admin <br/>
+   You can use this device for two operations <br/>
+   First operation is router. Connect to dsl cable in to dsl port in device <br/>
+   Second operqtion is acces point with cable. Connect lan port from device with lan port yo router <br/>
+   After disable dchp server form device and give ip = 192.168.2.253 and subnet mask = 255.255.255.0 </br> <br/>
+   
         
    
   
