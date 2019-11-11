@@ -1,13 +1,13 @@
 /*
-*  Clonenew is a programm for clone websites.
-*  Copyright (c) 2017 Barchampas Gerasimos.
+*  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
+*  proxior is a program for poisoning and spoofing dns.
 *
-*  Clonenew is free software: you can redistribute it and/or modify
+*  proxior is free software: you can redistribute it and/or modify
 *  it under the terms of the GNU Affero General Public License as published by
 *  the Free Software Foundation, either version 3 of the License, or
 *  (at your option) any later version.
 *
-*  Clonenew is distributed in the hope that it will be useful,
+*  proxior is distributed in the hope that it will be useful,
 *  but WITHOUT ANY WARRANTY; without even the implied warranty of
 *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 *  GNU Affero General Public License for more details.
@@ -44,7 +44,7 @@ width:;
 
 #select_dns
 {
-height:4em;
+height:2.5em;
 width:20em;
 text-align:center;
 background: white;
@@ -76,9 +76,10 @@ text-align:center;
 #submit
 {
 height:3em;
-width:25em;
+width:23.5em;
 color:black;
 font-size:16px;
+background-color:white;
 }
 
 
@@ -106,19 +107,20 @@ background:;
 .shell-wrap 
 {
 height: 98%;
-  width: 98%;
-  margin: 1px auto 0 auto;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+width: 98%;
+margin: 1px auto 0 auto;
+box-shadow: 0 0 30px rgba(0,0,0,0.4);
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
  
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+background: #300A24; /* Old browsers */
 }
  
 .shell-top-bar {
   text-align: center;
   color: #525252;
-  padding: 10px;
+  padding: 30px;
   margin: 0;
   text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
   font-size: 1.5em;
@@ -132,13 +134,14 @@ height: 98%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
  
-  background: #f7f7f7; /* Old browsers */
-  background: -moz-linear-gradient(top,  #f7f7f7 0%, #B8B8B8 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#B8B8B8)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8',GradientType=0 ); /* IE6-9 */
+
+background: white; /* Old browsers */
+
+
+background-image: url('clone_diagram.jpg'), url('clone_diagram.jpg');
+background-repeat: no-repeat, no-repeat;
+background-position: top right, top left; 
+background-size: 11% 100%, 11% 100%; 
+
 }
 
