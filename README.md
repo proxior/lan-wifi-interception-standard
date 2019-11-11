@@ -26,7 +26,6 @@ i) Any website clone for manual method <br />
 Three attack methods 
 
 a) Fake dns generator for create batch file for computer of victim <br />
-   To find the victim's data go to /export/data.txt <br />
    To find the batch file go to /export/l_win.bat  <br /> <br />
 
 b) Email phishing with ngrok link <br />
