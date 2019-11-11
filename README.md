@@ -42,8 +42,13 @@ b) Email phishing with ngrok link <br />
  email@gmail.com <br/>
  password123456 <br/> <br/>
  
-c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br />
-
+c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
+   For this method insert in to device the the dns for spoof <br/>
+   e.x dns: www.gmail.com <br/>
+        ip: 192.168.2.2 <br/>
+   The devive connect with server(laptop or pc) with specific ip address.. This ip is 192.168.2.2 <br/>     
+        
+   
   
 
 How it works
