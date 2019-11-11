@@ -25,7 +25,9 @@ i) Any website clone for manual method <br />
 
 Three attack methods 
 
-a) Fake dns generator for create batch file for computer of victim <br /> <br />
+a) Fake dns generator for create batch file for computer of victim <br />
+   To find the victim's data go to /export/data.txt <br />
+   To find the batch file go to /export/l_win.bat  <br /> <br />
 
 b) Email phishing with ngrok link <br />
  After install the ngrok in same folder <br>
@@ -33,9 +35,6 @@ b) Email phishing with ngrok link <br />
  Run th script and clone any website <br /> <br />
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br />
 
-
- To find the victim's data go to /export/data.txt <br />
- To find the batch file go to /export/l_win.bat  <br />
   
 
 How it works
