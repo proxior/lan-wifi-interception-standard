@@ -15,20 +15,24 @@ i) Any website clone for manual method <br/>
      
 ![1](css/screenshots/1.png) <br/><br/> 
 
-
-
  ii) Ready web sites (socail media and email) <br/>
  
  a) socail media (facebook,instagram,twitter) <br/>
  b) email (gmail,hotmail,yahoo) <br/>
 
+![2](css/screenshots/2.png) <br/><br/> 
 
-<br/>
 
-Three attack methods 
+Three attack methods </br>
+
+![3](css/screenshots/3.png) <br/><br/> 
+
 
 a) Fake dns generator for create batch file for computer of victim <br/>
    To find the batch file go to /export/l_win.bat  <br/> <br/>
+
+![5](css/screenshots/5.png) <br/><br/> 
+
 
 b) Email phishing with ngrok link <br/>
  After install the ngrok in same folder <br/>
@@ -36,12 +40,20 @@ b) Email phishing with ngrok link <br/>
  Run th script and clone any website <br/> <br/>
  
  !Notice.. For using email phishing method open the file settings.txt <br/>
- Default seetings working for gmail accounts. If you want using another mail change the mail settings <br />
  Insert the details your account email (need a email account for send fake emails) <br/>
- Fisrt line insert email and second line insert password <br/>
  e.x <br/>
  email@gmail.com <br/>
- password123456 <br/> <br/>
+ password123456 <br/> 
+ Default seetings working for gmail accounts. If you want using another mail change the mail settings from file settings.txt <br/>
+ #settings for email server informations <br/>
+ debug: 0 </br>
+ authentication: true </br>
+ tls or ssl: tls </br>
+ host: smtp.gmail.com </br>
+ port: 465 or 587 </br> 
+ 
+![6](css/screenshots/6.png) <br/><br/> 
+
  
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For this method insert in to device the the dns for spoof <br/>
@@ -63,6 +75,12 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    Insert into IP Address field the ip from your server e.x 192.168.2.2 <br>
    Press add. Dns spoof registered <br/> <br/>
    
+   ![9](css/screenshots/9.png) <br/>
+   ![8](css/screenshots/8.png) <br/> 
+   ![7](css/screenshots/7.png) <br/> 
+   ![4](css/screenshots/4.png) <br/><br/> 
+
+   
    You can use this device for three operations <br/>
    
    First operation is router. Connect to dsl cable in to dsl port in device <br/>
@@ -82,9 +100,11 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    Second method enter the browser address bar your_ip/export/data.txt or fake_url/export/data.txt <br/>
    e.x 192.168.2.2/export/data.txt or www.facebook.gr/export/data.txt <br/> <br/>
    
-   
+   ![10](css/screenshots/10.png)  
+   ![11](css/screenshots/11.png) <br/><br/> 
+
   
 
-How it works
+   How it works
 
 ![clonene_diagram](css/clone_diagram.jpg) 
