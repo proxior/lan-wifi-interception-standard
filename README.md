@@ -51,10 +51,12 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    This device username and password details. <br/>
    username: admin <br/>
    password: admin <br/>
-   You can use this device for two operations <br/>
+   You can use this device for three operations <br/>
    First operation is router. Connect to dsl cable in to dsl port in device <br/>
    Second operqtion is acces point with cable. Connect lan port from device with lan port yo router <br/>
-   After disable dchp server form device and give ip = 192.168.2.253 and subnet mask = 255.255.255.0 </br> <br/>
+   After disable dchp server form device and give ip = 192.168.2.253 and subnet mask = 255.255.255.0 <br/>
+   Thirf operation is created a roque wifi with no internet connection <br/>
+   !Attention! The wifi must be open... NO KEYS NO ENCRYPTION..... FREE WIFI <br/> <br/>
    
         
    
