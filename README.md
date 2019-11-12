@@ -100,7 +100,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For view steal accounts go to UI panel </br>
    Go to UI.. your_ip/UI..  e.x 192.168.2.2/UI <br/>
    
-   ![10](css/screenshots/10.png) <br/><br/> 
+   ![10.1](css/screenshots/10.1.png) <br/><br/> 
 
   
 
