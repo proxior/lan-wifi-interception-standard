@@ -32,7 +32,7 @@
 
     <title> proxior </title>
   
-  <link rel="icon" type="image/jpg" href="/css/clone_title.jpg" />
+  <link rel="icon" type="image/jpg" href="/css/icons/dns2.png" />
 
  <link rel="stylesheet" type="text/css" href="css/dns.css">
 
