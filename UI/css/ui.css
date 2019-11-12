@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Calibri;
+    font-size: 17px;
+    height: 100vh;
+    color: #333;
+}
+
+
+
+.outersec {
+    width: 100%;
+    padding: 15px 0;
+    height: 6%;
+}
+
+.outersec>.left-col,
+.outersec>.right-col {
+    height: 100%;
+    display: inline-block;
+    margin-right: -4px;
+    vertical-align: top;
+}
+
+.outersec>.left-col>.inner,
+.outersec>.right-col>.inner {
+    width: 100%;
+    overflow: auto;
+}
+.outersec>.right-col>.inner {
+    height: 100%;
+}
+
+.outersec>.right-col {
+    width: 250px;
+    border-left: 1px solid #444;
+    padding: 0 15px;
+    position: absolute;
+    right: 0;
+}
+
+.outersec>.right-col ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.outersec>.right-col ul>li>a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 100%;
+    background-color: #efefef;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.outersec>.right-col ul>li.active a,
+.outersec>.right-col ul>li>a:hover {
+    background-color: #006666;
+    color: #fff;
+}
+
+.outersec>.right-col ul>li:last-child>a {
+    margin-bottom: 0;
+}
+
+.outersec>.left-col {
+    width: calc(100% - 250px);
+    padding: 0 15px;
+}
+
+.outersec>.left-col .heading {
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color:#300A24;
+    color: #fff;
+}
+
+.outersec>.left-col .heading.active {
+     background-color: #006666; 
+}
