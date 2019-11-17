@@ -86,3 +86,39 @@ body {
 .outersec>.left-col .heading.active {
      background-color: #006666; 
 }
+
+
+
+#sub
+{
+height: 30px;
+width: 200px;
+border: 0px;
+background-color:#300A24;
+color:white;
+}
+
+
+#sub:hover
+{
+height: 30px;
+width: 200px;
+border: 0px;
+background-color:#83095c;
+color:white;
+}
+
+
+
+#a2
+{
+text-decoration:none; 
+color:grey;
+}
+
+
+#a2:hover
+{
+text-decoration:none; 
+color:white;
+}
