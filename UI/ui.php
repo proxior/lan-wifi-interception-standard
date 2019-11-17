@@ -38,21 +38,52 @@ session_start();
 
 <body>
 
+<!--
+<img src='css/icons/dns2.png' height='50' width='100'>
+-->
 
 <?php
 
-     echo "<div align='center' style='width:100%; background-color:#006666;'> 
-               
-                   <br>
 
-              <img src='css/icons/dns2.png' height='50' width='100'>
-             
+     echo "<div align='center' style='background-color:#006666;'> 
+
+            <font size='5'> 
+             <a href='ui.php' id='a2'> <b> PROXIOR DNS::UI </b> </a> 
+            </font>
 
                <br>
 
-             <a style='color: white; font-size:25px;' href='/clear.php'> Clear </a>
+                 <table>
+                   <tr>
+                  
+                  <td>
+                   <form action='/clear.php'>
+                   <button type='submit' name='submit_clear' value='ok' id='sub'> Clear </button>
                    &nbsp; &nbsp; &nbsp; 
-             <a style='color: white; font-size:25px;' href='logout.php'> Logout </a> 
+                  </form>
+                 </td>
+
+
+                <td>
+                 <form action='' method='GET'>
+                 <button type='submit' name='Save' value='ok' id='sub'> Save </button>
+                 &nbsp; &nbsp; &nbsp; 
+                 </form>
+               </td> 
+
+
+                <td>
+                 <form action='logout.php'>
+                 <button type='submit' name='submit_stored' id='sub'> Logout </button>
+                 &nbsp; &nbsp; &nbsp; 
+                 </form>
+               </td> 
+
+
+               </tr>
+               </table>
+                
+
           </div>";
 
     $handle = fopen("/var/www/proxior/export/data.txt", "r");
@@ -104,6 +135,16 @@ session_start();
   fclose($handle); 
         } 
 
+
+
+    if (isset($_GET['Save']))
+       {
+
+    $file_time = date("d:m:Y_H:i:s");
+
+    copy("/var/www/proxior/export/data.txt", "/var/www/proxior/stored/data_$file_time");
+
+         }
 
 
 ?>
