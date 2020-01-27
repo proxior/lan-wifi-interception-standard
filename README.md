@@ -10,39 +10,30 @@ program for interception all lan and wifi traffic. <br/>
  <table>
 
 <tr>
-     <td> <img width="100" height="100" src="screenshots/system_requirements.png"> </td>
-  <td> System requirements (quad core and more, 4gb ram and more) </td>
+     <td> <img width="100" height="100" src="css/screenshots/system_requirements.png"> </td>
+  <td> System requirements (dual core and more, 2gb ram and more) </td>
    </tr>
    
   <tr>
-   <td> <img align="left" width="100" height="100" src="screenshots/os.jpg"> </td>
+   <td> <img align="left" width="100" height="100" src="css/screenshots/os.jpg"> </td>
    <td>  OS System: (Gnu/linux systems bellow) </td>
   </tr>
- 
- <tr>
-  <td> RPM-based (Red Hat Linux, CentOS, Fedora, openSUSE, Mandrake Linux etc) </td>     
-  <td>   <img width="100" height="100" src="screenshots/rpm.png"> </td>   
-</tr>
   
  <tr>
-  <td> Debian-based </td>
-  <td> <img width="100" height="100" src="screenshots/debian.jpg"> </td>
+  <td> Kali Linux </td>
+  <td> <img width="100" height="100" src="css/screenshots/debian.jpg"> </td>
  </tr>
      
- <tr>    
-  <td> MEPIS-based </td> 
-  <td> <img width="100" height="100" src="screenshots/mepis.png"> </td> 
-</tr>
+ <tr>
+  <td> Ubuntu </td>
+  <td> <img width="100" height="100" src="css/screenshots/debian.jpg"> </td>
+ </tr>
 
 <tr>
- <td> Gentoo-based </td>
-  <td> <img width="100" height="100" src="screenshots/gentoo.jpg"> </td>
+ <td> Linux Mint </td>
+  <td> <img width="100" height="100" src="css/creenshots/gentoo.jpg"> </td>
 </tr>
      
-<tr>     
-  <td> Slackware-based </td>
-  <td> <img width="100" height="100" src="screenshots/slackware.jpg"> </td>      
-</tr>
 
 </table>
 
