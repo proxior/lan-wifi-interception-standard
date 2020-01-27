@@ -69,7 +69,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    password: proxior <br/>
    
    For create new fake dns follow this steps <br/>
-   Insert into device: getaway: 192.168.2.1 username: proxion pass: proxion  <br/>
+   Insert into device: getaway: 192.168.2.1 username: proxior pass: proxior  <br/>
    Go to Application -> DNS Service -> Host <br/>
    Insert into Host Name field the dns for spoof e.x www.instagram.gr <br/>
    Insert into IP Address field the ip from your server e.x 192.168.2.2 <br>
