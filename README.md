@@ -5,6 +5,46 @@ program for interception all lan and wifi traffic. <br/>
 ![warning](css/screenshots/warning.jpg) <br/><br/> 
 
  <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
+ 
+ 
+ <table>
+
+<tr>
+     <td> <img width="100" height="100" src="screenshots/system_requirements.png"> </td>
+  <td> System requirements (quad core and more, 4gb ram and more) </td>
+   </tr>
+   
+  <tr>
+   <td> <img align="left" width="100" height="100" src="screenshots/os.jpg"> </td>
+   <td>  OS System: (Gnu/linux systems bellow) </td>
+  </tr>
+ 
+ <tr>
+  <td> RPM-based (Red Hat Linux, CentOS, Fedora, openSUSE, Mandrake Linux etc) </td>     
+  <td>   <img width="100" height="100" src="screenshots/rpm.png"> </td>   
+</tr>
+  
+ <tr>
+  <td> Debian-based </td>
+  <td> <img width="100" height="100" src="screenshots/debian.jpg"> </td>
+ </tr>
+     
+ <tr>    
+  <td> MEPIS-based </td> 
+  <td> <img width="100" height="100" src="screenshots/mepis.png"> </td> 
+</tr>
+
+<tr>
+ <td> Gentoo-based </td>
+  <td> <img width="100" height="100" src="screenshots/gentoo.jpg"> </td>
+</tr>
+     
+<tr>     
+  <td> Slackware-based </td>
+  <td> <img width="100" height="100" src="screenshots/slackware.jpg"> </td>      
+</tr>
+
+</table>
 
  i) Download the programm unzip and paste folder proxior in to /var/www/ <br/>
 ii) Ppen the terminal and run chmod -R 777 /var/www/proxior <br/>
