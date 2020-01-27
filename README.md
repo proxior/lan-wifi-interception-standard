@@ -31,7 +31,7 @@ program for interception all lan and wifi traffic. <br/>
 
 <tr>
  <td> Linux Mint </td>
-  <td> <img width="100" height="100" src="css/creenshots/linux-mint.jpg"> </td>
+  <td> <img width="100" height="100" src="css/screenshots/linux-mint.jpg"> </td>
 </tr>
      
 
