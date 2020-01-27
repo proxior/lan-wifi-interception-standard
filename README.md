@@ -102,7 +102,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For save steal accounts presse save from UI panel <br/>
    Save steal accounts in text files in to "stored" folder <br/>
    
-   ![10.1](css/screenshots/10.1.png) <br/><br/> 
+   ![10.1](css/screenshots/10.2.png) <br/><br/> 
 
   
 
