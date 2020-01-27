@@ -20,18 +20,18 @@ program for interception all lan and wifi traffic. <br/>
   </tr>
   
  <tr>
+  <td> <img width="100" height="100" src="css/screenshots/kali-linux.jpg"> </td>
   <td> Kali Linux </td>
-  <td> <img align="center" width="100" height="100" src="css/screenshots/kali-linux.jpg"> </td>
  </tr>
      
  <tr>
+  <td> <img width="100" height="100" src="css/screenshots/ubuntu.jpg"> </td>
   <td> Ubuntu </td>
-  <td> <img align="center" width="100" height="100" src="css/screenshots/ubuntu.jpg"> </td>
  </tr>
 
 <tr>
+ <td> <img width="100" height="100" src="css/screenshots/linux-mint.jpg"> </td>
  <td> Linux Mint </td>
-  <td> <img align="center" width="100" height="100" src="css/screenshots/linux-mint.jpg"> </td>
 </tr>
 
 </table>
