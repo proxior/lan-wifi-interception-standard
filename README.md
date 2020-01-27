@@ -58,7 +58,7 @@ b) Email phishing with ngrok link <br/>
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    For this method insert in to device the the dns for spoof <br/>
    For your ip view in to the connection informations or enter ifconfig on terminal <br/>
-   For first operation and second operation your use the ip from eth0 
+   For first operation and second operation your use the ip from eth0 <br/>
    For third operation roque wifi use the ip from wlan0 
    e.x <br/>
    dns: www.gmail.com <br/>
