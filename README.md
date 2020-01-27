@@ -7,7 +7,7 @@ program for interception all lan and wifi traffic. <br/>
  <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
 
  i) Download the programm unzip and paste folder proxior in to /var/www/ <br/>
-ii) open the terminal and run chmod -R 777 /var/www/proxior <br/>
+ii) Ppen the terminal and run chmod -R 777 /var/www/proxior <br/>
 iii) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
 iii) Proxior is ready to use. <br/>
 
