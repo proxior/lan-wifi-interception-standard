@@ -20,6 +20,9 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+     <meta http-equiv="refresh" content="60" > 
+
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title> DNS:: Data </title>
@@ -45,6 +48,20 @@ session_start();
 <?php
 
 
+
+
+function get_title($url){
+  $str = file_get_contents($url);
+  if(strlen($str)>0){
+    $str = trim(preg_replace('/\s+/', ' ', $str)); // supports line breaks inside <title>
+    preg_match("/\<title\>(.*)\<\/title\>/i",$str,$title); // ignore case
+    return $title[1];
+  }
+}
+
+$title =  get_title("http://localhost");
+
+
      echo "<div align='center' style='background-color:#006666;'> 
 
             <font size='5'> 
@@ -56,6 +73,11 @@ session_start();
                  <table>
                    <tr>
                   
+                    <tr> 
+                     <td></td> 
+                     <td align='center'> <font size='5' color='grey'> $title </font> </td> 
+                    </tr>
+
                   <td>
                    <form action='/clear.php'>
                    <button type='submit' name='submit_clear' value='ok' id='sub'> Clear </button>
@@ -142,7 +164,7 @@ session_start();
 
     $file_time = date("d:m:Y_H:i:s");
 
-    copy("/var/www/proxior/export/data.txt", "/var/www/proxior/stored/data_$file_time");
+    copy("/var/www/proxior/export/data.txt", "/var/www/proxior/stored/data_$title.$file_time");
 
          }
 
