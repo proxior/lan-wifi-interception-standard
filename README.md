@@ -68,7 +68,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    username: proxior <br/>
    password: proxior <br/>
    
-   For create new fake dns follow this steps </br/>
+   For create new fake dns follow this steps <br/>
    Insert into device: getaway: 192.168.2.1 username: proxion pass: proxion  <br/>
    Go to Application -> DNS Service -> Host <br/>
    Insert into Host Name field the dns for spoof e.x www.instagram.gr <br/>
@@ -99,6 +99,8 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    
    For view steal accounts go to UI panel </br>
    Go to UI.. your_ip/UI..  e.x 192.168.2.2/UI <br/>
+   For save steal accounts presse save from UO panel <br/>
+   Save steal accounts in text files in to "stored" folder <br/>
    
    ![10.1](css/screenshots/10.1.png) <br/><br/> 
 
