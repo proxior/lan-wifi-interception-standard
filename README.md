@@ -4,7 +4,7 @@ program for interception all lan and wifi traffic. <br/>
 
 ![warning](css/screenshots/warning.jpg) <br/><br/> 
 
- <font color='black' size='5'> installation </font> <br/>
+ <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
 
  i) Download the programm unzip and paste folder proxior in to /var/www/ <br/>
 ii) open the terminal and run chmod -R 777 /var/www/proxior <br/>
