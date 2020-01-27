@@ -99,7 +99,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
    
    For view steal accounts go to UI panel </br>
    Go to UI.. your_ip/UI..  e.x 192.168.2.2/UI <br/>
-   For save steal accounts presse save from UO panel <br/>
+   For save steal accounts presse save from UI panel <br/>
    Save steal accounts in text files in to "stored" folder <br/>
    
    ![10.1](css/screenshots/10.1.png) <br/><br/> 
