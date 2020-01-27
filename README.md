@@ -21,17 +21,17 @@ program for interception all lan and wifi traffic. <br/>
   
  <tr>
   <td> Kali Linux </td>
-  <td> <img width="100" height="100" src="css/screenshots/debian.jpg"> </td>
+  <td> <img width="100" height="100" src="css/screenshots/kali-linux.jpg"> </td>
  </tr>
      
  <tr>
   <td> Ubuntu </td>
-  <td> <img width="100" height="100" src="css/screenshots/debian.jpg"> </td>
+  <td> <img width="100" height="100" src="css/screenshots/ubuntu.jpg"> </td>
  </tr>
 
 <tr>
  <td> Linux Mint </td>
-  <td> <img width="100" height="100" src="css/creenshots/gentoo.jpg"> </td>
+  <td> <img width="100" height="100" src="css/creenshots/linux-mint.jpg"> </td>
 </tr>
      
 
