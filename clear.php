@@ -107,6 +107,9 @@
 
   $url_redirection = shell_exec('shell/./my_ipv4.sh');
 
+  $url_redirection = str_replace(' ', '', $url_redirection);
+
+
   echo "<meta http-equiv='refresh' content= '2;URL=http://$url_redirection?clear'/>";
 
 
