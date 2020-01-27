@@ -1,13 +1,8 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-
 /*
-*  Copyright (c) 2019 Barchampas Gerasimos <makindosx@gmail.com>.
-*  proxior is a program for poisoning and spoofing dns.
+*  Copyright (c) 2019-2020 Barchampas Gerasimos <makindosxx@gmail.com>.
+*  proxior is a wifi interception.
 *
 *  proxior is free software: you can redistribute it and/or modify
 *  it under the terms of the GNU Affero General Public License as published by
@@ -23,6 +18,10 @@ error_reporting(E_ALL);
 *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *
 */
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 
   session_start();
