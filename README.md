@@ -1,6 +1,6 @@
 # proxior
 lan and wifi interception. <br/>
-program for poisoning and spoofing dns. <br/>
+program for interception all lan and wifi traffic. <br/>
 
  Download the programm and paste folder proxior in to /var/www/ <br/>
 
