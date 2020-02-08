@@ -38,9 +38,60 @@ program for interception all lan and wifi traffic. <br/>
 
 
  i) Download the programm unzip and paste folder proxior in to /var/www/ <br/>
-ii) Ppen the terminal and run chmod -R 777 /var/www/proxior <br/>
-iii) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
-iii) Proxior is ready to use. <br/>
+ii) Open the terminal and run chmod -R 777 /var/www/proxior <br/>
+iii) Open the terminal ang go to /var/www/proxior/ssl path </br>
+     This path run the command mkcert -install </br>
+     After install run the this comand for create ssl keys for lan network </br> 
+      (This ssl keys stop all https connections in aln for (emails and social media) services </br>
+      (Only http services worked in the lan) </br>
+      (The ssl keys are ready for proxior default) </br>
+      (if you want created new keys for block new https services view the filw "use" into ssl folder) </br>
+      (example for create ssl keys:) mkcert proxiorkeys gmail.com "*.gmail.com" "*.hotmail.com" "*.yahoo.com" "*.twitter.com" "*.facebook.com" "*.instagram.com" localhost 127.0.0.1 ::1 192.168.2.2 </br>
+v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf with them </br>
+  
+   <IfModule mod_ssl.c> </br>
+    <VirtualHost _default_:443> </br>
+
+        ServerAdmin admin@identifier.com </br>
+        ServerName identifier.com </br>
+        ServerAlias www.proxior.gr </br>
+        DocumentRoot /var/www/proxior </br>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log </br>
+        CustomLog ${APACHE_LOG_DIR}/access.log combined </br>
+        SSLEngine on </br>
+        SSLCertificateFile /var/www/proxior/ssl/proxiorkeys+10.pem </br>
+        SSLCertificateKeyFile /var/www/proxior/ssl/proxiorkeys+10-key.pem </br>
+                           </br>
+        #<FilesMatch "\.(cgi|shtml|phtml|php)$"> </br>
+        #                SSLOptions +StdEnvVars </br>
+        #</FilesMatch>  </br>
+                         </br>
+        #<Directory /usr/lib/cgi-bin> </br>
+        #                SSLOptions +StdEnvVars </br>
+        #</Directory> </br>
+                       </br>
+                       </br>
+    <Directory /var/www/identifier> </br>
+    DirectoryIndex index.py </br>
+   Options Indexes FollowSymLinks MultiViews ExecCGI </br>
+   AllowOverride None </br>
+   Order allow,deny  </br>
+   allow from all    </br>
+   AddHandler cgi-script .py  </br>
+</Directory> </br>
+             </br>
+             </br>
+        BrowserMatch "MSIE [2-6]" \ </br>
+                        nokeepalive ssl-unclean-shutdown \ </br>
+                        downgrade-1.0 force-response-1.0 </br>
+        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown </br>
+                   </br> 
+    </VirtualHost> </br>
+</IfModule> </br>
+
+vi) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
+vii) Proxior is ready to use. <br/>
 
 This program have  <br/>
 
