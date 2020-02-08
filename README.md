@@ -61,12 +61,6 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
         SSLEngine on </br> 
         SSLCertificateFile /var/www/proxior/ssl/proxiorkeys+10.pem </br>
         SSLCertificateKeyFile /var/www/proxior/ssl/proxiorkeys+10-key.pem </br>
-        #<FilesMatch "\.(cgi|shtml|phtml|php)$"> </br>
-        #                SSLOptions +StdEnvVars </br>
-        #</FilesMatch>      </br>
-        #<Directory /usr/lib/cgi-bin> </br>
-        #                SSLOptions +StdEnvVars </br>
-        #</Directory>         </br>
     <Directory /var/www/proxior> </br>
     <DirectoryIndex index.py> </br>
    Options Indexes FollowSymLinks MultiViews ExecCGI </br>
