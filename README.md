@@ -49,7 +49,7 @@ iii) Open the terminal ang go to /var/www/proxior/ssl path </br>
       (example for create ssl keys:) mkcert proxiorkeys gmail.com "*.gmail.com" "*.hotmail.com" "*.yahoo.com" "*.twitter.com" "*.facebook.com" "*.instagram.com" localhost 127.0.0.1 ::1 192.168.2.2 </br>
 v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf with them </br>
   
-     <p>
+   <p>
    <IfModule mod_ssl.c> </br>
     <VirtualHost _default_:443> </br>
         ServerAdmin admin@proxior.gr </br>
@@ -66,13 +66,12 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
    AllowOverride None </br>
    Order allow,deny  </br>
    allow from all   </br>
-   AddHandler cgi-script .py </br> 
 </Directory> </br>
         BrowserMatch "MSIE [2-6]" \ </br>
                         nokeepalive ssl-unclean-shutdown \ </br>
                         downgrade-1.0 force-response-1.0 </br>
         BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown </br>
-    </VirtualHost></br>
+    </VirtualHost> </br>
 </IfModule> </br>
 </p>
 
