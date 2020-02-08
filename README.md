@@ -5,6 +5,9 @@ lan and wifi interception (program for interception all lan and wifi traffic) <b
 
 ![fake_dns](css/screenshots/fake_dns.png) </br></br>
 
+ 
+  <font size="6"> SOFTWARE </font>
+
 
  <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
  
