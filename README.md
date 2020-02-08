@@ -49,7 +49,7 @@ iii) Open the terminal ang go to /var/www/proxior/ssl path </br>
       (example for create ssl keys:) mkcert proxiorkeys gmail.com "*.gmail.com" "*.hotmail.com" "*.yahoo.com" "*.twitter.com" "*.facebook.com" "*.instagram.com" localhost 127.0.0.1 ::1 192.168.2.2 </br>
 v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf with them </br>
   
-    <p>
+   
     <IfModule mod_ssl.c> </br>
      <VirtualHost _default_:443> </br>
         ServerAdmin admin@proxior.gr </br>
@@ -74,7 +74,7 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
     </VirtualHost> </br>
     </IfModule> </br>
 
-     </p>
+    
 
 vi) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
 vii) Proxior is ready to use. <br/>
