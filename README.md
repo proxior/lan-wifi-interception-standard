@@ -6,7 +6,7 @@ lan and wifi interception (program for interception all lan and wifi traffic) <b
 ![fake_dns](css/screenshots/fake_dns.png) </br></br>
 
  
-  <font size="6"> SOFTWARE </font>
+ <font size="7"> 1) SOFTWARE </font> </br>
 
 
  <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
@@ -134,6 +134,20 @@ b) Email phishing with ngrok link <br/>
  port: 465 or 587 </br> 
  
 ![6.1](css/screenshots/6.1.png) <br/><br/> 
+
+
+ <font size="7"> 2) HARDWARE </font> </br>
+  
+ Campatible Devices </br>
+  ZTE ZXHN H108N </br>
+  ZTE ZXHN H208N </br>
+  ZTE ZXHN H220N </br>
+  ZTE F620 </br>
+  ZTE F620 </br>
+  ZTE F660 </br>
+  ZTE F668 </br>
+  ZTE F680 </br>
+  
 
  
 c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
