@@ -51,44 +51,35 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
   
    <IfModule mod_ssl.c> </br>
     <VirtualHost _default_:443> </br>
-
-        ServerAdmin admin@identifier.com </br>
-        ServerName identifier.com </br>
-        ServerAlias www.proxior.gr </br>
-        DocumentRoot /var/www/proxior </br>
-
-        ErrorLog ${APACHE_LOG_DIR}/error.log </br>
-        CustomLog ${APACHE_LOG_DIR}/access.log combined </br>
+        ServerAdmin admin@proxior.gr 
+        ServerName identifier.com 
+        ServerAlias www.proxior.gr 
+        DocumentRoot /var/www/proxior 
+        ErrorLog ${APACHE_LOG_DIR}/error.log 
+        CustomLog ${APACHE_LOG_DIR}/access.log combined 
         SSLEngine on </br>
-        SSLCertificateFile /var/www/proxior/ssl/proxiorkeys+10.pem </br>
-        SSLCertificateKeyFile /var/www/proxior/ssl/proxiorkeys+10-key.pem </br>
-                           </br>
-        #<FilesMatch "\.(cgi|shtml|phtml|php)$"> </br>
-        #                SSLOptions +StdEnvVars </br>
-        #</FilesMatch>  </br>
-                         </br>
-        #<Directory /usr/lib/cgi-bin> </br>
-        #                SSLOptions +StdEnvVars </br>
-        #</Directory> </br>
-                       </br>
-                       </br>
-    <Directory /var/www/identifier> </br>
-    DirectoryIndex index.py </br>
-   Options Indexes FollowSymLinks MultiViews ExecCGI </br>
-   AllowOverride None </br>
-   Order allow,deny  </br>
-   allow from all    </br>
-   AddHandler cgi-script .py  </br>
-</Directory> </br>
-             </br>
-             </br>
-        BrowserMatch "MSIE [2-6]" \ </br>
-                        nokeepalive ssl-unclean-shutdown \ </br>
-                        downgrade-1.0 force-response-1.0 </br>
-        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown </br>
-                   </br> 
-    </VirtualHost> </br>
-</IfModule> </br>
+        SSLCertificateFile /var/www/proxior/ssl/proxiorkeys+10.pem 
+        SSLCertificateKeyFile /var/www/proxior/ssl/proxiorkeys+10-key.pem 
+        #<FilesMatch "\.(cgi|shtml|phtml|php)$"> 
+        #                SSLOptions +StdEnvVars 
+        #</FilesMatch>      
+        #<Directory /usr/lib/cgi-bin> 
+        #                SSLOptions +StdEnvVars 
+        #</Directory>         
+    <Directory /var/www/identifier> 
+    <DirectoryIndex index.py> 
+   Options Indexes FollowSymLinks MultiViews ExecCGI 
+   AllowOverride None 
+   Order allow,deny  
+   allow from all   
+   AddHandler cgi-script .py 
+</Directory> 
+        BrowserMatch "MSIE [2-6]" \ 
+                        nokeepalive ssl-unclean-shutdown \ 
+                        downgrade-1.0 force-response-1.0 
+        BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown 
+    </VirtualHost>
+</IfModule> 
 
 vi) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
 vii) Proxior is ready to use. <br/>
