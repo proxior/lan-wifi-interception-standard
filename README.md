@@ -4,6 +4,9 @@ program for interception all lan and wifi traffic. <br/>
 
 ![warning](css/screenshots/warning.jpg) <br/><br/> 
 
+![fake_dns](css/screenshots/fake_dns.png) </br></br>
+
+
  <font color='black' size='5'> <b> INSTALLATION </b> </font> <br/>
  
  
@@ -183,5 +186,7 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
   
 
    How it works
+
+![block](css/screenshots/block.png) </br></br>
 
 ![clonene_diagram](css/clone_diagram.jpg) 
