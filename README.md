@@ -186,6 +186,6 @@ c) Dns Spoof (Spoofing and poisoning DNS with hardware device) <br/>
 
    How it works
 
-![block](css/screenshots/block.png) </br></br>
+![block1](css/screenshots/block1.png) </br></br>
 
 ![clonene_diagram](css/clone_diagram.jpg) 
