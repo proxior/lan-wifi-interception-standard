@@ -79,7 +79,7 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
                         downgrade-1.0 force-response-1.0 </br>
         BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown </br>
     </VirtualHost></br>
-</IfModule> v
+</IfModule> </br>
 
 vi) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
 vii) Proxior is ready to use. <br/>
