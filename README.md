@@ -41,7 +41,7 @@ lan and wifi interception (program for interception all lan and wifi traffic) <b
 
 </table>
 
-
+<!--
  i) Download the programm unzip and paste folder proxior in to /var/www/ <br/>
 ii) Open the terminal and run chmod -R 777 /var/www/proxior <br/>
 iii) Open the terminal ang go to /var/www/proxior/ssl path </br>
@@ -79,10 +79,12 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
     </VirtualHost> </br>
     </IfModule> </br>
 
-    
 
-vi) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
-vii) Proxior is ready to use. <br/>
+-->
+    
+i) Download the file install and run in terminal with root ex ./install.sh
+ii) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
+iiii) Proxior is ready to use. <br/>
 
 This program have  <br/>
 
