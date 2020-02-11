@@ -82,7 +82,7 @@ v) after replace the file lines /etc/apach2/sites-available/default-ssl.conf wit
 
 -->
    
-i) Download file <b> <a href="http://proxior.c1.biz/install" download> Install </a>  </b> and run in terminal with root ex <b> ./install.sh </b> <br>
+i) Download file <b> <a href="http://proxior.c1.biz/install" download="install"> Install </a>  </b> and run in terminal with root ex <b> ./install.sh </b> <br>
 ii) Turn on the device and connect it to your computer via a LAN or Wi-Fi cable <br/>
 iiii) Proxior is ready to use. <br/>
 
