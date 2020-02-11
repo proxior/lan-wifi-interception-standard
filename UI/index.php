@@ -32,7 +32,7 @@
 
  <title> DNS::UI </title>
 
-     <link rel="icon" type="image/jpg" href="css/icons/dns2.png" />
+     <link rel="icon" type="image/jpg" href="logo.png" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -53,7 +53,7 @@
  <div class="container">
     <div class="col-xs-12 col-sm-12 col-md-12">
 
-      <img src="/css/icons/dns2.png" class="img-responsive" height="280px;" width="280px;">
+      <img src="logo.png" class="img-responsive" height="280px;" width="280px;">
       <div class="row">
         <h3 class="text-center" style="padding-right: 80px;"> PROXIOR DNS::UI </h3>
       </div>
@@ -64,7 +64,7 @@
 
          <div class="input-group col-xs-9 col-sm-9 col-md-9">
 
-           <form action="" method="post">
+           <form action="" method="get">
 
              <input type="text" placeholder="Username" name="username" class="form-control"> <br><br>
 
@@ -91,14 +91,14 @@
 
 <?php
  
-if(isset($_POST['submit']))
+if(isset($_GET['submit']))
   {
   
   $user = "proxior@dns"; 
   $pass = "proxior@dns";
 
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  $username = $_GET['username'];
+  $password = $_GET['password'];
 
    if($username == $user && $password == $pass)
       {

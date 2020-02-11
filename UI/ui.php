@@ -46,7 +46,7 @@ session_start();
 
     <title> DNS:: Data </title>
 
-     <link rel="icon" type="image/jpg" href="css/icons/dns2.png" />
+     <link rel="icon" type="image/jpg" href="logo.png" />
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -86,16 +86,16 @@ $title =  get_title("http://localhost");
             <font size='5'> 
              <a href='ui.php' id='a2'> <b> PROXIOR DNS::UI </b> </a> 
             </font>
+             
+             <br>
+    
+            <font size='5' color='grey'> $title </font> 
 
                <br>
 
                  <table>
                    <tr>
                   
-                    <tr> 
-                     <td></td> 
-                     <td align='center'> <font size='5' color='grey'> $title </font> </td> 
-                    </tr>
 
                   <td>
                    <form action='/clear.php'>
@@ -114,6 +114,15 @@ $title =  get_title("http://localhost");
 
 
                 <td>
+                   <form action='/stored' target='_blank'>
+                   <button type='submit' id='sub'> View all </button>
+                   &nbsp; &nbsp; &nbsp; 
+                  </form>
+                 </td>
+
+
+
+                <td>
                  <form action='logout.php'>
                  <button type='submit' name='submit_stored' id='sub'> Logout </button>
                  &nbsp; &nbsp; &nbsp; 
@@ -123,7 +132,7 @@ $title =  get_title("http://localhost");
 
                </tr>
                </table>
-                
+              
 
           </div>";
 
