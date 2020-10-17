@@ -31,7 +31,10 @@ error_reporting(E_ALL);
   opcache_reset();
 
 
-   $ip_redirection = shell_exec('shell/./my_ipv4.sh');
+
+
+    $ip_redirection = $_SERVER['SERVER_ADDR'];
+
   
     require_once('__SRC__/class_redirection.php');
 

